@@ -1,24 +1,11 @@
-# README
+# CAMAAR-UnB
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Participantes:
+Scrum Master: Luiz Fernando Sperandio David - 190112735
+Product Owner:  Rodrigo Vieira de oliveira - 242043105
+Guilherme Barbosa Dias - 221018924
 
-Things you may want to cover:
+### Política de Branching:
+Por Feature e Release(Sprints)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Funcionalidades e seus Responsáveis:
