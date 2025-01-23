@@ -9,3 +9,8 @@ Guilherme Barbosa Dias - 221018924
 Por Feature e Release(Sprints)
 
 ### Funcionalidades e seus Responsáveis:
+Guilherme - sistema de login, sistema de definição de senha, criar formulário de avaliação, criar template de formulário, visualização dos templates criados
+
+Rodrigo - 
+
+Luiz - 
