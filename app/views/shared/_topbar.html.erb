@@ -1,0 +1,24 @@
+<div class="topbar">
+  <div class="topbar-left">
+    <button id="menu-toggle" class="menu-icon" type="button">
+      <i class="fas fa-bars"></i>
+    </button>
+    <h2 class="page-title"><%= yield(:page_title) %></h2>
+  </div>
+  
+  <div class="topbar-right">
+    <div class="search-container">
+      <input type="text" placeholder="Pesquisar..." class="search-input">
+      <i class="fas fa-search search-icon"></i>
+    </div>
+    
+    <div class="user-menu-container">
+      <button id="user-menu-toggle" class="user-icon" type="button">
+        <i class="fas fa-user-circle"></i>
+      </button>
+      <div id="user-dropdown" class="user-dropdown">
+        <%= link_to "Logout", root_path, class: "logout-link" %>
+      </div>
+    </div>
+  </div>
+</div>

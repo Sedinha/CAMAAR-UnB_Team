@@ -1,0 +1,18 @@
+<div class="login-container">
+  <h1>LOGIN</h1>
+  
+  <div class="login-form">
+    <div class="form-group">
+      <input type="email" placeholder="Email" class="form-input">
+    </div>
+    
+    <div class="form-group">
+      <input type="password" placeholder="Senha" class="form-input">
+    </div>
+    
+    <div class="button-group">
+      <%= button_to "Logar como admin", admin_dashboard_path, method: :get, class: "login-button" %>
+      <%= button_to "Logar como usuario", user_dashboard_path, method: :get, class: "login-button" %>
+    </div>
+  </div>
+</div>

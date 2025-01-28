@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: camaar_development
+
+  
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails server -b '0.0.0.0'"
+    volumes:
+      - .:/app
+      - ./config/master.key:/app/config/master.key:ro
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgres://myuser:mypassword@db:5432/camaar_development
+      SECRET_KEY_BASE: 8b61a1c68698c7c6bf387e4205e7075f4c169a019b63c33ebfd4da46430cb67e121a2a40223bdc781465c7567e6fa5933db5c3bb8be4651883361b6abe96f66b
+
+
+volumes:
+  postgres_data:

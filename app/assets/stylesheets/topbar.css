@@ -1,0 +1,117 @@
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 1000;
+  }
+  
+  .topbar-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    margin-right: auto;
+    position: relative;
+  }
+  
+  .menu-icon {
+    background: none;
+    display: flex;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+
+  }
+  
+  .page-title {
+    font-size: 20px;
+    color: #333;
+  }
+  
+  .topbar-right {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-left: auto;
+    position: absolute;
+    top: 0;
+}
+  .search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-input {
+    padding: 8px 35px 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    width: 200px;
+  }
+  
+  .search-icon {
+    position: absolute;
+    right: 12px;
+    color: #666;
+  }
+  
+  .user-menu-container {
+    position: relative;
+  }
+  
+  .user-icon {
+    background: none;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  .user-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    padding: 8px 0;
+    min-width: 150px;
+    z-index: 1001;
+  }
+  
+  .user-dropdown.active {
+    display: block !important; /* Força a exibição quando ativo */
+  }
+  
+  .logout-link {
+    display: block;
+    padding: 8px 16px;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .logout-link:hover {
+    background-color: #f5f5f5;
+  }
+  
+  /* Ajuste para o conteúdo principal não ficar sob a topbar */
+  .main-content {
+    margin-top: 60px;
+    padding: 20px;
+  }
+
+  .sidebar-open {
+    transform: translateX(250px);
+    transition: transform 0.3s ease;
+  }
