@@ -41,10 +41,9 @@
     flex-direction: row;
     align-content: center;
     align-items: center;
-    gap: 30px;
-    margin-left: auto;
+    gap: 25px;
     position: absolute;
-    top: 0;
+    right: 10px;
 }
   .search-container {
     position: relative;
