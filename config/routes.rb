@@ -5,7 +5,13 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Rotas para redirecionamento após login
+
+  #Rota da administração
   get "/admin_dashboard", to: "admin#dashboard"
+  get "/admin/templates", to: "admin#templates", as: :admin_templates
+  get "/admin/templates/new", to: "admin#new_template", as: :new_admin_template
+  post "/admin/templates", to: "admin#create_template", as: :create_admin_template
+  #Rota do usuário
   get "/user_dashboard", to: "user#dashboard"
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
