@@ -11,8 +11,8 @@
     </div>
     
     <div class="button-group">
-      <%= button_to "Logar como admin", admin_dashboard_path, method: :get, class: "login-button" %>
-      <%= button_to "Logar como usuario", user_dashboard_path, method: :get, class: "login-button" %>
+      <%= button_to "Logar como admin", login_admin_path, method: :post, class: "login-button" %>
+      <%= button_to "Logar como usuario", login_user_path, method: :post, class: "login-button" %>
     </div>
   </div>
 </div>

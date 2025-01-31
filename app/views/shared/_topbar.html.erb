@@ -6,6 +6,15 @@
     <h2 class="page-title"><%= yield(:page_title) %></h2>
   </div>
   
+  <div id="menu-container" class="menu-container">
+    <% if session[:user_type] == "user" %>
+      <button class="menu-button">Avaliação</button>
+    <% elsif session[:user_type] == "admin" %>
+      <button class="menu-button">Avaliação</button>
+      <button class="menu-button">Gerenciamento</button>
+    <% end %>
+  </div>
+  
   <div class="topbar-right">
     <div class="search-container">
       <input type="text" placeholder="Pesquisar..." class="search-input">
@@ -17,7 +26,11 @@
         <i class="fas fa-user-circle"></i>
       </button>
       <div id="user-dropdown" class="user-dropdown">
-        <%= link_to "Logout", root_path, class: "logout-link" %>
+        <% if session[:user_type] == "user" %>
+          <%= link_to "Logout", root_path, method: :delete, class: "logout-link" %>
+        <% else %>
+          <%= link_to "Logout", root_path, method: :delete, class: "logout-link" %>
+        <% end %>
       </div>
     </div>
   </div>

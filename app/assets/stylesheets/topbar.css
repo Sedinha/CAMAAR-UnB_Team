@@ -31,6 +31,40 @@
 
   }
   
+  .menu-container {
+    display: none;
+    width: 10%;
+    position: absolute;
+    top: 60px; /* Ajuste conforme necessário */
+    left: 0;
+    background-color: white;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: calc(100vh - 60px); /* Ocupa toda a altura da página menos a altura da topbar */
+    overflow-y: auto; /* Permite rolagem se o conteúdo for maior que a altura disponível */
+  }
+  
+  .menu-container.active {
+    display: block;
+  }
+  
+  .menu-button {
+    color: rgb(3, 3, 3);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .menu-button:hover {
+    background-color: #6f42c1; /* Cor roxa ao passar o mouse */
+  }
+  
+  .menu-button.selected {
+    background-color: #6f42c1; /* Cor roxa para o botão selecionado */
+  }
   .page-title {
     font-size: 20px;
     color: #333;
@@ -41,10 +75,10 @@
     flex-direction: row;
     align-content: center;
     align-items: center;
-    gap: 30px;
-    margin-left: auto;
+    gap: 25px;
     position: absolute;
-    top: 0;
+    right: 10px;
+    top: 13px;
 }
   .search-container {
     position: relative;
@@ -112,6 +146,8 @@
   }
 
   .sidebar-open {
-    transform: translateX(250px);
+    transform: translateX(150px);
     transition: transform 0.3s ease;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
