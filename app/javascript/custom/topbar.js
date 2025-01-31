@@ -3,6 +3,7 @@ export function initializeTopbar() {
   const userMenuToggle = document.getElementById('user-menu-toggle');
   const userDropdown = document.getElementById('user-dropdown');
   const menuToggle = document.getElementById('menu-toggle');
+  const menuContainer = document.getElementById('menu-container');
 
   if (userMenuToggle && userDropdown) {
     userMenuToggle.addEventListener('click', function(e) {
@@ -19,10 +20,10 @@ export function initializeTopbar() {
     });
   }
 
-  if (menuToggle) {
+  if (menuToggle&& menuContainer) {
     menuToggle.addEventListener('click', function(e) {
       e.preventDefault();
-      document.body.classList.toggle('sidebar-open');
+      menuContainer.classList.toggle('active');
       console.log('Menu clicked');
     });
   }
