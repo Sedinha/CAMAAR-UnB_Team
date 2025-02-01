@@ -1,9 +1,0 @@
-<h1>Templates de Formulário<h1>
-
-<%= link_to "Novo Template", new_admin_template_path, class: "btn btn-primary" %>
-
-<ul>
-        <% @template.each do |template| %>
-                <li><%= template.name %><li>
-        <% end %>                
-</ul>
