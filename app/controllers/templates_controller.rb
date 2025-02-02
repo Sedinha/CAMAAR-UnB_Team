@@ -2,11 +2,15 @@ require 'ostruct'
 
 class TemplatesController < ApplicationController
   
+
+  def dashboard
+    @page_title = "Gerenciamento de templates"
+  end
   
   def index
     @templates = [
-      OpenStruct.new(id: 1, name: "Template de Exemplo 1", semester: "Descrição do template 1"),
-      OpenStruct.new(id: 2, name: "Template de Exemplo 2", semester: "Descrição do template 2")
+      OpenStruct.new(id: 1, name: "Template 1", semester: "semestre"),
+      OpenStruct.new(id: 2, name: "Template 2", semester: "semestre")
     ]
     
   end
@@ -22,7 +26,7 @@ class TemplatesController < ApplicationController
     @template = Template.new(template_params)
 
     if @template.save
-      redirect_to templates_path, notice: "Template was successfully created."
+      redirect_to @template
     else
       render :new
     end
