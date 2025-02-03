@@ -1,0 +1,20 @@
+
+
+<%= form_with model: @template, url: templates_path, local: true do |form| %>
+    <div>
+        <%= form.label :nome, "" %>
+        <%= form.text_field :nome, placeholder: "" %>
+    </div>
+
+    <div>
+        <%= form.label :semestre, "" %>
+        <%= form.text_field :semestre, placeholder: "" %>
+    </div>
+
+    <div>
+        <%= form.label :publicoAlvo, "" %>
+        <%= form.text_field :publicoAlvo, placeholder: "" %>
+    </div>
+
+    <%= submit_tag "Criar", class: "submit-button" %>    
+<% end %>

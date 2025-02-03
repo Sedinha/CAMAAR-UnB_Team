@@ -7,9 +7,10 @@
         <div class="templates-container">
         <% @templates.each do |template| %>
             <div class="template-card">
-            <h3><%= template.name %></h3>
-            <p>Semestre</p>
+            <h3><%= template.nome %></h3>
+            <p><%= template.semestre %></p>
                 <div class="icons">
+                    <%= link_to "Show", template_path(template), class: 'no-underline' %>
                     <%= link_to "✏️", edit_template_path(template), class: 'no-underline' %>
                     <%= link_to "🗑️", template_path(template), method: :delete, data: { confirm: "Tem certeza que deseja excluir?" }, class: 'no-underline' %>
                 </div> 
@@ -18,7 +19,7 @@
         <% end %>
 
             
-            <%= button_to "+", new_template_path, method: :post, class: 'button-template'%>
+            <%= link_to "+", new_template_path, class: 'button-template'%>
         </div>
     </div>
 </div>

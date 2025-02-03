@@ -1,5 +1,3 @@
-require 'ostruct'
-
 class TemplatesController < ApplicationController
   
 
@@ -8,11 +6,11 @@ class TemplatesController < ApplicationController
   end
   
   def index
-    @templates = [
-      OpenStruct.new(id: 1, name: "Template 1", semester: "semestre"),
-      OpenStruct.new(id: 2, name: "Template 2", semester: "semestre")
-    ]
-    
+    @templates = Template.all  
+  end
+
+  def show
+    @template = Template.find(params[:id])
   end
   
 
@@ -26,12 +24,12 @@ class TemplatesController < ApplicationController
     @template = Template.new(template_params)
 
     if @template.save
-      redirect_to @template
+      redirect_to templates_path, notice: 'Template criado com sucesso.'
     else
       render :new
     end
   end
-end
+  
 
   private
 
@@ -40,5 +38,6 @@ end
   end
 
   def template_params
-    params.require(:template).permit(:name, :semester)
+    params.require(:template).permit(:nome, :semestre, :publicoAlvo)
   end
+end

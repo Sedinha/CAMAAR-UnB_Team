@@ -1,15 +1,26 @@
-.template-page .main-content{
-  display: grid;
-  width: 100vw;
+body {
+  display: flex;
+  justify-content: left;
   height: 100vh;
+  
+}
+
+.template-page{
+  width: 100%;
+  height: auto;
+
+}
+.template-page .main-content{
+  padding: 0;
+  margin-top: 0;
 }
 
 .templates-container{
   flex-wrap: wrap;
   display: flex;
   gap: 24px;
-  margin-top: 1rem;
-  margin-left: 20px;
+
+
 }
 
 .template-card {
@@ -54,7 +65,9 @@
     font-size: 58px;
     border-radius: 8px;
     border: none;
+    color: black;
     background-color: #fff;
+    text-decoration: none;
 }
 
 .button-template:hover{
