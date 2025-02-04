@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  question_type: 1
+  content: MyText
+  options: MyText
+  template: one
+
+two:
+  title: MyString
+  question_type: 1
+  content: MyText
+  options: MyText
+  template: two
