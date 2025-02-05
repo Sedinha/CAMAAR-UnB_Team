@@ -66,9 +66,9 @@ end
 
 
 
-#rails generate model Course code:string name:string
-#rails generate model ClassInfo class_code:string semester:string time:string course:references
-
-#rails generate model ClassInfo code:string class_code:string semester:string
-#rails generate model Student name:string course:string registration:string username:string formation:string occupation:string email:string class_info:references
-#rails generate model Teacher name:string department:string formation:string username:string email:string occupation:string class_info:references
+#rails g model Turma codigo semestre horario professor:references materia:references
+#rails g model Professor nome departamento formacao usuario email ocupacao
+#rails g model Aluno nome curso matricula usuario formacao ocupacao email
+#rails g model Disciplina codigo nome
+#rails g model Matricula aluno:references turma:references
+#rails g model ProfessorDisciplina professor:references disciplina:references
