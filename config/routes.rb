@@ -31,4 +31,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  resources :turmas
+  resources :professores
+  resources :alunos
+  resources :disciplinas
+  resources :matriculas
+  resources :professor_disciplinas
 end
