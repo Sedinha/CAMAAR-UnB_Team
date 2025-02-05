@@ -1,0 +1,48 @@
+<%# Formluário de criação de um novo template%>
+<% content_for :page_title do %>
+    Criação - templates
+<% end %>
+
+<%= form_with model: @template, url: templates_path, local: true do |form| %>
+    <div>
+        <%= form.label :nome, "Nome da Template" %>
+        <%= form.text_field :nome, placeholder: "" %>
+    </div>
+
+    <div>
+        <%= form.label :semestre, "" %>
+        <%= form.text_field :semestre, placeholder: "" %>
+    </div>
+
+    <div>
+        <%= form.label :publicoAlvo, "" %>
+        <%= form.text_field :publicoAlvo, placeholder: "" %>
+    </div>
+
+    <h3>Questões</h3>
+    <div id="questions">
+        <%= form.fields_for :questions do |question_fields| %>
+        <div class="question-fields">
+            <div>
+                <%=question_fields.label :title, "Título" %>
+                <%=question_fields.text_field :title, placeholder: "Título da questão" %>
+            </div>
+            <div>
+                <%=question_fields.label :question_type, "Tipo" %>
+                <%=question_fields.select :question_type, Question.question_types.keys.map { |w| [w.humanize, w] } %>
+            </div>
+            <div>
+                <%=question_fields.label :content, "conteúdo" %>
+                <%=question_fields.text_area :content, placeholder: "Conteúdo da questão" %>
+            </div>
+            
+            <%= question_fields.hidden_field :_destroy %>
+            <button type="button" class="remove-question">Remover questão</button>
+        
+        </div>
+
+        <% end %>
+    </div>
+
+    <%= submit_tag "Criar", class: "submit-button" %>    
+<% end %>

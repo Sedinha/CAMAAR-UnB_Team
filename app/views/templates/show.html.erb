@@ -1,0 +1,21 @@
+<%= form_with(model: @template, local: true) do |form| %>
+    <div class="template">
+        <div class="template-detail">
+            <strong>Nome:</strong>
+            <p><%= @template.nome %></p>
+        </div>
+
+        <div class="template-detail">
+            <strong>Semestre:</strong>
+            <p><%= @template.semestre %></p>
+        </div>
+
+        <div class="template-detail">
+            <strong>Público Alvo:</strong>
+            <p><%= @template.publicoAlvo %></p>
+        </div>
+    </div>
+
+    <%= link_to "voltar", templates_path, class: "button"%>
+
+<% end %>

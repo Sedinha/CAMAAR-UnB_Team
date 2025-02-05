@@ -1,0 +1,27 @@
+<div class="template-page">
+    <% content_for :page_title do %>
+        Gerenciamento - templates
+    <% end %>
+
+    <div class="main-content">
+        <div class="templates-container">
+        <% @templates.each do |template| %>
+            <%= link_to template_path(template), class: 'template-link' do%>
+                <div class="template-card">
+                    <div>
+                        <h3><%= template.nome %></h3>
+                        <p><%= template.semestre %></p>
+                    </div>
+                    <div class="icons">
+                        <%= link_to "✏️", edit_template_path(template), class: 'no-underline' %>
+                        <%= link_to "🗑️", template_path(template), method: :delete, data: { confirm: "Tem certeza que deseja excluir?" }, class: 'no-underline' %>
+                    </div> 
+                </div>
+            <% end %>
+        <% end %>
+
+            
+            <%= link_to "+", new_template_path, class: 'button-template'%>
+        </div>
+    </div>
+</div>
