@@ -14,7 +14,7 @@
                     </div>
                     <div class="icons">
                         <%= link_to "✏️", edit_template_path(template), class: 'no-underline' %>
-                        <%= link_to "🗑️", template_path(template), method: :delete, data: { confirm: "Tem certeza que deseja excluir?" }, class: 'no-underline' %>
+                        <%= link_to "🗑️", template_path(template), data: { turbo_method: :delete, confirm: "Tem certeza que deseja excluir?" }, class: 'no-underline' %>
                     </div> 
                 </div>
             <% end %>

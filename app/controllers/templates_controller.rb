@@ -31,6 +31,12 @@ class TemplatesController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    set_template
+    @template.destroy
+    redirect_to templates_path, notice: 'Template deletado com sucesso.'
+  end
   
 
   private
