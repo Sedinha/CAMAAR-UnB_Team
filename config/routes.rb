@@ -31,10 +31,19 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  # Rotas para banco de dados
   resources :turmas
   resources :professores
   resources :alunos
   resources :disciplinas
   resources :matriculas
   resources :professor_disciplinas
+
+  # Rotas para upload de arquivos
+  resources :turmas do
+    collection { post :import }
+    collection { post :import_members }
+  end
+
 end

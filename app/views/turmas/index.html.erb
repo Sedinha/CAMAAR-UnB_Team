@@ -1,0 +1,31 @@
+<h1>Lista de Turmas</h1>
+
+<%= form_with url: import_turmas_path, multipart: true, method: :post do |form| %>
+  <label for="file">Importar JSON:</label>
+  <%= form.file_field :file, required: true %>
+  <%= form.submit "Importar" %>
+<% end %>
+
+<table>
+  <tr>
+    <th>Código</th>
+    <th>Semestre</th>
+    <th>Horário</th>
+    <th>Disciplina</th>
+  </tr>
+
+  <% @turmas.each do |turma| %>
+    <tr>
+      <td><%= turma.codigo %></td>
+      <td><%= turma.semestre %></td>
+      <td><%= turma.horario %></td>
+      <td><%= turma.materia.nome %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= form_with url: import_members_turmas_path, multipart: true, method: :post do |form| %>
+  <label for="file">Importar Alunos e Professores:</label>
+  <%= form.file_field :file, required: true %>
+  <%= form.submit "Importar" %>
+<% end %>
