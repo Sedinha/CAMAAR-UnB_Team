@@ -1,3 +1,5 @@
+<%# views/templates/new.html.erb %>
+
 <%# Formluário de criação de um novo template%>
 <% content_for :page_title do %>
     Criação - templates
@@ -43,6 +45,31 @@
 
         <% end %>
     </div>
+
+    <!-- Template oculto para novas questões -->
+    <template id="question-template">
+        <div class="question-fields">
+            <div>
+                <label for="template_questions_attributes_INDEX_title">Título</label>
+                <input type="text" name="template[questions_attributes][INDEX][title]" placeholder="Título da questão">
+            </div>
+            <div>
+                <label for="template_questions_attributes_INDEX_question_type">Tipo</label>
+                <select name="template[questions_attributes][INDEX][question_type]">
+                    <% Question.question_types.keys.each do |type| %>
+                        <option value="<%= type %>"><%= type.humanize %></option>
+                    <% end %>
+                </select>
+            </div>
+            <div>
+                <label for="template_questions_attributes_INDEX_content">conteúdo</label>
+                <textarea name="template[questions_attributes][INDEX][content]" placeholder="Conteúdo da questão"></textarea>
+            </div>
+            <input type="hidden" name="template[questions_attributes][INDEX][_destroy]" value="false">
+            <button type="button" class="remove-question">Remover questão</button>
+        </div>
+    </template>
+    <button type="button" id="add-question">Adicionar questão</button>
 
     <%= submit_tag "Criar", class: "submit-button" %>    
 <% end %>
