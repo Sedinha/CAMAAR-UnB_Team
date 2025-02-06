@@ -32,6 +32,19 @@ class TemplatesController < ApplicationController
     end
   end
 
+  def edit 
+    set_template
+  end
+
+  def update
+    set_template
+    if @template.update(template_params)
+      redirect_to templates_path, notice: 'Template atualizado com sucesso.'
+    else
+      render :edit
+    end
+  end
+
   def destroy
     set_template
     @template.destroy

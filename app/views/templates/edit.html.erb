@@ -1,0 +1,73 @@
+
+<% content_for :page_title do %>
+    Edição - templates
+<% end %>
+
+<%= form_with model: @template, local: true do |form| %>
+    <div>
+        <%= form.label :nome, "Nome da Template" %>
+        <%= form.text_field :nome, placeholder: "" %>
+    </div>
+
+    <div>
+        <%= form.label :semestre, "" %>
+        <%= form.text_field :semestre, placeholder: "" %>
+    </div>
+
+    <div>
+        <%= form.label :publicoAlvo, "" %>
+        <%= form.text_field :publicoAlvo, placeholder: "" %>
+    </div>
+
+    <h3>Questões</h3>
+    <div id="questions">
+        <%= form.fields_for :questions do |question_fields| %>
+        <div class="question-fields">
+            <div>
+                <%=question_fields.label :title, "Título" %>
+                <%=question_fields.text_field :title, placeholder: "Título da questão" %>
+            </div>
+            <div>
+                <%=question_fields.label :question_type, "Tipo" %>
+                <%=question_fields.select :question_type, Question.question_types.keys.map { |w| [w.humanize, w] } %>
+            </div>
+            <div>
+                <%=question_fields.label :content, "conteúdo" %>
+                <%=question_fields.text_area :content, placeholder: "Conteúdo da questão" %>
+            </div>
+            
+            <%= question_fields.hidden_field :_destroy %>
+            <button type="button" class="remove-question">Remover questão</button>
+        
+        </div>
+
+        <% end %>
+    </div>
+
+    <!-- Template oculto para novas questões -->
+    <template id="question-template">
+        <div class="question-fields">
+            <div>
+                <label for="template_questions_attributes_INDEX_title">Título</label>
+                <input type="text" name="template[questions_attributes][INDEX][title]" placeholder="Título da questão">
+            </div>
+            <div>
+                <label for="template_questions_attributes_INDEX_question_type">Tipo</label>
+                <select name="template[questions_attributes][INDEX][question_type]">
+                    <% Question.question_types.keys.each do |type| %>
+                        <option value="<%= type %>"><%= type.humanize %></option>
+                    <% end %>
+                </select>
+            </div>
+            <div>
+                <label for="template_questions_attributes_INDEX_content">conteúdo</label>
+                <textarea name="template[questions_attributes][INDEX][content]" placeholder="Conteúdo da questão"></textarea>
+            </div>
+            <input type="hidden" name="template[questions_attributes][INDEX][_destroy]" value="false">
+            <button type="button" class="remove-question">Remover questão</button>
+        </div>
+    </template>
+    <button type="button" id="add-question">Adicionar questão</button>
+
+    <%= submit_tag "Atualizar", class: "submit-button" %>    
+<% end %>
