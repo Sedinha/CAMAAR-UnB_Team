@@ -22,7 +22,7 @@
 !/tmp/pids/
 !/tmp/pids/.keep
 
-# Ignore storage (uploaded files in development and any SQLite databases).
+# Ignore storage (uploaded files in development and any postgres databases).
 /storage/*
 !/storage/.keep
 /tmp/storage/*
