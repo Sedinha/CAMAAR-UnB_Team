@@ -191,7 +191,6 @@ GEM
       ast (~> 2.4.1)
       racc
     pg (1.5.9)
-    pg (1.5.9-x64-mingw-ucrt)
     psych (5.2.3)
       date
       stringio
