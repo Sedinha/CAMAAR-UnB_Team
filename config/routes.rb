@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   # post "/login", to: "sessions#create"
   #
   # Rotas de Logout
-  delete "/logout", to: "sessions#destroy"
+  #delete "/logout", to: "sessions#destroy"
 
   resources :templates
 
@@ -48,5 +48,11 @@ Rails.application.routes.draw do
     collection { post :import }
     collection { post :import_members }
   end
+
+  # rotas para o login
+  get "login", to: "sessions#new"
+  post "login", to: "sessions#create"
+  delete "logout", to: "sessions#destroy"
+  
 
 end
