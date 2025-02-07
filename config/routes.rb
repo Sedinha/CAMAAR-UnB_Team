@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   resources :templates
 
   get "admin/management", to: "admin#management"
+  # Rotas para exportação de resultados
+  get 'export_results', to: 'results#export'
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
