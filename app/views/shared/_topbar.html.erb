@@ -11,7 +11,7 @@
       <button class="menu-button">Avaliação</button>
     <% elsif session[:user_type] == "admin" %>
       <button class="menu-button">Avaliação</button>
-      <button class="menu-button">Gerenciamento</button>
+      <button class="menu-button" onclick="window.location.href='<%= admin_management_path %>'">Gerenciamento</button>
     <% end %>
   </div>
   

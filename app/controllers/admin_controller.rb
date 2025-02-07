@@ -7,4 +7,8 @@ class AdminController < ApplicationController
   def authenticate_admin!
     redirect_to root_path unless session[:user_type] == "admin"
   end
+
+  def management
+    @page_title = "Gerenciamento"
+  end
 end
