@@ -8,16 +8,16 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: postgres
-  password: 123456
+  username: my_username
+  password: my_password
   host: localhost
   timeout: 5000
 
 development:
   <<: *default
   database: my_project_development
-  username: postgres
-  password: 123456
+  username: my_username
+  password: my_password
   host: localhost
 
 # Warning: The database defined as "test" will be erased and
@@ -26,8 +26,8 @@ development:
 test:
   <<: *default
   database: my_project_test
-  username: postgres
-  password: 123456
+  username: my_username
+  password: my_password
   host: localhost
 
 

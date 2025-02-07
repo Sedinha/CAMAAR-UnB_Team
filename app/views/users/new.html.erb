@@ -1,0 +1,55 @@
+<!-- app/views/users/new.html.erb -->
+<div class="login-container">
+  <h2>Criar Conta</h2>
+
+  <% if flash[:notice] %>
+    <div class="alert alert-success">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
+  <% if flash[:alert] %>
+    <div class="alert alert-danger">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+
+  <%= form_with(model: @user, local: true, class: "login-form") do |f| %>
+    <% if @user.errors.any? %>
+      <div class="error-messages">
+        <% @user.errors.full_messages.each do |message| %>
+          <p><%= message %></p>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :username, "Nome" %>
+      <%= f.text_field :username, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :matricula %>
+        <%= f.text_field :matricula, class: "form-control" %>
+
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, class: "form-control" %>
+      <small>Use um email com domínio @prof.br para criar um administrador.</small>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, class: "form-control" %>
+    </div>
+
+    <%= f.submit "Criar Conta", class: "btn btn-primary" %>
+  <% end %>
+
+  <%= link_to "Já tem uma conta? Faça login", root_path, class: "login-link" %>
+</div>

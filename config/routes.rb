@@ -1,21 +1,20 @@
 Rails.application.routes.draw do
-  get "user/dashboard"
+  get "user/dashboard", to: "users#dashboard"
   get "admin/dashboard"
   root "home#index"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Rotas para redirecionamento após login
+  resources :users
+  # Rotas para criacao de usuario
+  get "/signup", to: "users#new"
+  post "/signup", to: "users#create"
 
-  #Rota da administração
-  get "/admin_dashboard", to: "admin#dashboard"
+  post "/login", to: "home#create"
 
-  #Rota do usuário
-  get "/user_dashboard", to: "user#dashboard"
-
-  # Rotas de Login a serem implementadas
-  post "/login_user", to: "sessions#create_user"
-  post "/login_admin", to: "sessions#create_admin"
-
+  # Rotas de Login
+  # get "/admin_login", to: "home#admin_login"
+  # get "/user_login", to: "home#user_login"
+  # post "/login", to: "sessions#create"
+  #
   # Rotas de Logout
   delete "/logout", to: "sessions#destroy"
 

@@ -2,17 +2,24 @@
   <h1>LOGIN</h1>
   
   <div class="login-form">
+    <%= form_with(url: login_path, method: :post, local: true, class: "login-form") do |f| %>
     <div class="form-group">
-      <input type="email" placeholder="Email" class="form-input">
+      <%= f.label :matricula, "Matrícula" %>
+      <%= f.text_field :matricula, class: "form-control" %>
     </div>
     
     <div class="form-group">
-      <input type="password" placeholder="Senha" class="form-input">
+      <%= f.label :password, "Senha" %>
+      <%= f.password_field :password, class: "form-control" %>
     </div>
     
-    <div class="button-group">
-      <%= button_to "Logar como admin", login_admin_path, method: :post, class: "login-button" %>
-      <%= button_to "Logar como usuario", login_user_path, method: :post, class: "login-button" %>
-    </div>
+    <%= f.submit "Login", class: "btn btn-primary" %>
+    <% end %>
+
+    <% if flash.now[:alert] %>
+      <p class="text-center" style="color: red;"><%= flash.now[:alert] %></p>
+    <% end %>
+    
+    <%= link_to "Criar nova conta", signup_path, class: "signup-link" %>
   </div>
 </div>
