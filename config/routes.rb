@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
 
   resources :templates
+  resources :questionarios, only: [ :new, :create, :index, :show ]
 
   get "admin/management", to: "admin#management"
 
