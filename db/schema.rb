@@ -72,11 +72,9 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_07_185110) do
     t.text "content", null: false
     t.text "options"
     t.bigint "template_id", null: false
-    t.bigint "turma_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["template_id"], name: "index_questions_on_template_id"
-    t.index ["turma_id"], name: "index_questions_on_turma_id"
   end
 
   create_table "respondidos", force: :cascade do |t|
@@ -134,7 +132,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_07_185110) do
   add_foreign_key "questionarios", "templates"
   add_foreign_key "questionarios", "turmas"
   add_foreign_key "questions", "templates"
-  add_foreign_key "questions", "turmas"
   add_foreign_key "respondidos", "questionarios"
   add_foreign_key "respondidos", "users"
   add_foreign_key "respostas", "questionarios"

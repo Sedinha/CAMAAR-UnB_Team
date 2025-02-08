@@ -6,7 +6,6 @@ class CreateQuestions < ActiveRecord::Migration[7.2]
       t.text :content, null: false
       t.text :options
       t.references :template, null: false, foreign_key: true
-      t.references :turma, null: false, foreign_key: true
 
       t.timestamps
     end

@@ -34,7 +34,7 @@
     <h3>Questões</h3>
     <div id="questions">
         <%= form.fields_for :questions do |question_form| %>
-        <%= question_form.hidden_field :template_id, value: @template.id if @template.persisted? %>
+        
         <div class="question-fields">
             <div>
                 <%=question_form.label :title, "Título" %>
