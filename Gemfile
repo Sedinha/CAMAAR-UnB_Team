@@ -60,5 +60,7 @@ group :test do
   gem "database_cleaner-active_record"
   gem "rspec-rails"
   gem "capybara"
+  gem "factory_bot_rails"
   gem "selenium-webdriver"
+  gem "rails-controller-testing"
 end
