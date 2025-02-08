@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_02_05_073847) do
+ActiveRecord::Schema[7.2].define(version: 2025_02_05_185200) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -81,6 +81,18 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_05_073847) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "turmas", force: :cascade do |t|
+    t.string "codigo"
+    t.string "semestre"
+    t.string "horario"
+    t.bigint "professor_id", null: false
+    t.bigint "disciplina_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["disciplina_id"], name: "index_turmas_on_disciplina_id"
+    t.index ["professor_id"], name: "index_turmas_on_professor_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
     t.string "matricula", null: false
@@ -92,18 +104,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_05_073847) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["matricula"], name: "index_users_on_matricula", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
-  end
-
-  create_table "turmas", force: :cascade do |t|
-    t.string "codigo"
-    t.string "semestre"
-    t.string "horario"
-    t.bigint "professor_id", null: false
-    t.bigint "disciplina_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["disciplina_id"], name: "index_turmas_on_disciplina_id"
-    t.index ["professor_id"], name: "index_turmas_on_professor_id"
   end
 
   add_foreign_key "matriculas", "alunos"
