@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get "user/dashboard", to: "users#dashboard"
-  get "admin/dashboard"
   root "home#index"
 
   resources :users
@@ -20,6 +18,8 @@ Rails.application.routes.draw do
 
   resources :templates
   resources :questionarios, only: [ :new, :create, :index, :show ]
+  get "questionarios/results/:id", to: "questionarios#results", as: :questionario_results
+  resources :respostas, only: [ :create ]
 
   get "admin/management", to: "admin#management"
 

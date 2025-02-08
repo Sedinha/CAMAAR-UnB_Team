@@ -5,6 +5,7 @@ class QuestionariosController < ApplicationController
     @questionario = Questionario.new
     @templates = Template.all
     @turmas = Turma.all
+    @publicos_alvo = [ "Doscentes", "Discentes" ]
   end
 
   def create
@@ -14,6 +15,26 @@ class QuestionariosController < ApplicationController
     else
       render :new
     end
+  end
+
+  def index
+    @questionarios = Questionario.joins(:turma).where(turmas: { id: current_user.matriculas.pluck(:turma_id) }).where.not(id: current_user.respondidos.pluck(:questionario_id))
+  end
+
+  def show
+    @questionario = Questionario.find(params[:id])
+    @respostas = Resposta.where(questionario_id: @questionario.id, user_id: current_user.id)
+  end
+
+  def new_response
+    @questionario = Questionario.find(params[:id])
+    # Initialize a new response object
+    @resposta = Resposta.new
+  end
+
+  def results
+    @questionario = Questionario.find(params[:id])
+    @respostas = Resposta.where(questionario_id: @questionario.id)
   end
 
   private

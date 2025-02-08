@@ -4,7 +4,6 @@ class CreateTemplates < ActiveRecord::Migration[7.2]
       t.string :nome, null: false
       t.string :semestre, null: false
       t.string :publicoAlvo
-
       t.timestamps
     end
   end
