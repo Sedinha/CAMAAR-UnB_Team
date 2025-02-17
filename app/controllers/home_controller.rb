@@ -8,7 +8,7 @@ class HomeController < ApplicationController
     elsif user&.admin? && user&.authenticate(params[:password])
       session[:user_id] = user.id
       session[:user_type] = "admin"
-      redirect_to admin_dashboard_path, notice: "Login efetuado com sucesso!"
+      redirect_to new_questionario_path, notice: "Login efetuado com sucesso!"
     elsif user&.authenticate(params[:password])
       session[:user_id] = user.id
       session[:user_type] = "user"

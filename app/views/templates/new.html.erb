@@ -6,6 +6,16 @@
 <% end %>
 
 <%= form_with model: @template, url: templates_path, local: true do |form| %>
+    <% if @template.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@template.errors.count, "error") %> prohibited this template from being saved:</h2>
+            <ul>
+                <% @template.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
     <div>
         <%= form.label :nome, "Nome da Template" %>
         <%= form.text_field :nome, placeholder: "" %>
@@ -23,22 +33,23 @@
 
     <h3>Questões</h3>
     <div id="questions">
-        <%= form.fields_for :questions do |question_fields| %>
+        <%= form.fields_for :questions do |question_form| %>
+        
         <div class="question-fields">
             <div>
-                <%=question_fields.label :title, "Título" %>
-                <%=question_fields.text_field :title, placeholder: "Título da questão" %>
+                <%=question_form.label :title, "Título" %>
+                <%=question_form.text_field :title, placeholder: "Título da questão" %>
             </div>
             <div>
-                <%=question_fields.label :question_type, "Tipo" %>
-                <%=question_fields.select :question_type, Question.question_types.keys.map { |w| [w.humanize, w] } %>
+                <%=question_form.label :question_type, "Tipo" %>
+                <%=question_form.select :question_type, Question.question_types.keys.map { |w| [w.humanize, w] } %>
             </div>
             <div>
-                <%=question_fields.label :content, "conteúdo" %>
-                <%=question_fields.text_area :content, placeholder: "Conteúdo da questão" %>
+                <%=question_form.label :content, "conteúdo" %>
+                <%=question_form.text_area :content, placeholder: "Conteúdo da questão" %>
             </div>
             
-            <%= question_fields.hidden_field :_destroy %>
+            <%= question_form.hidden_field :_destroy %>
             <button type="button" class="remove-question">Remover questão</button>
         
         </div>

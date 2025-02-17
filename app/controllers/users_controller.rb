@@ -30,7 +30,11 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       session[:user_type] = @user.role
-      redirect_to user_dashboard_path, notice: "Usuário criado com sucesso!"
+      if @user.role == "admin"
+        redirect_to new_questionario_path, notice: "Usuário criado com sucesso!"
+      else
+        redirect_to user_dashboard_path, notice: "Usuário criado com sucesso!"
+      end
     else
       flash.now[:alert] = "Não foi possível criar o usuário!"
       render :new
