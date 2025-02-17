@@ -22,6 +22,10 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_07_185110) do
     t.string "formacao"
     t.string "ocupacao"
     t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "coordenadors", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "departamento_id", null: false
@@ -40,8 +44,10 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_07_185110) do
   create_table "disciplinas", force: :cascade do |t|
     t.string "codigo"
     t.string "nome"
+    t.bigint "departamento_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["departamento_id"], name: "index_disciplinas_on_departamento_id"
   end
 
   create_table "matriculas", force: :cascade do |t|
@@ -71,22 +77,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_07_185110) do
     t.string "ocupacao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  create_table "materias", force: :cascade do |t|
-    t.string "nome"
-    t.string "codigo"
-    t.bigint "departamento_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["departamento_id"], name: "index_materias_on_departamento_id"
-  end
-
-  create_table "matriculas", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "turma_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["turma_id"], name: "index_matriculas_on_turma_id"
-    t.index ["user_id"], name: "index_matriculas_on_user_id"
   end
 
   create_table "questao_options", force: :cascade do |t|
@@ -156,9 +146,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_07_185110) do
     t.datetime "updated_at", null: false
     t.index ["disciplina_id"], name: "index_turmas_on_disciplina_id"
     t.index ["professor_id"], name: "index_turmas_on_professor_id"
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -174,18 +161,13 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_07_185110) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "coordenadors", "departamentos"
+  add_foreign_key "coordenadors", "users"
+  add_foreign_key "disciplinas", "departamentos"
   add_foreign_key "matriculas", "alunos"
   add_foreign_key "matriculas", "turmas"
   add_foreign_key "professor_disciplinas", "disciplinas"
   add_foreign_key "professor_disciplinas", "professors"
-  add_foreign_key "questions", "templates"
-  add_foreign_key "turmas", "disciplinas"
-  add_foreign_key "turmas", "professors"
-  add_foreign_key "coordenadors", "departamentos"
-  add_foreign_key "coordenadors", "users"
-  add_foreign_key "materias", "departamentos"
-  add_foreign_key "matriculas", "turmas"
-  add_foreign_key "matriculas", "users"
   add_foreign_key "questao_options", "questions"
   add_foreign_key "questionarios", "templates"
   add_foreign_key "questionarios", "turmas"
@@ -194,4 +176,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_07_185110) do
   add_foreign_key "respondidos", "users"
   add_foreign_key "respostas", "questionarios"
   add_foreign_key "respostas", "questions"
+  add_foreign_key "turmas", "disciplinas"
+  add_foreign_key "turmas", "professors"
 end
