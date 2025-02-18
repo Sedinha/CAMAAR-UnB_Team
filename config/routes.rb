@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "home#index"
 
-  resources :users
+  resources :users, path: "signup", only: [ :new, :create ]
   # Rotas para criacao de usuario
   get "/signup", to: "users#new"
   post "/signup", to: "users#create"
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   # post "/login", to: "sessions#create"
   #
   # Rotas de Logout
-  #delete "/logout", to: "sessions#destroy"
+  # delete "/logout", to: "sessions#destroy"
 
   resources :templates
   resources :questionarios, only: [ :new, :create, :index, :show ]
@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   get "admin/management", to: "admin#management"
   # Rotas para exportação de resultados
-  get 'export_results', to: 'results#export'
+  get "export_results", to: "results#export"
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
@@ -54,6 +54,4 @@ Rails.application.routes.draw do
   get "login", to: "sessions#new"
   post "login", to: "sessions#create"
   delete "logout", to: "sessions#destroy"
-  
-
 end
