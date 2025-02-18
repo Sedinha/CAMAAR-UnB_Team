@@ -7,8 +7,8 @@
             "driver": "PostgreSQL",
             "name": "DBConnection",
             "database": "my_project_development",
-            "username": "my_username",
-            "password": "my_password"
+            "username": "postgres",
+            "password": "123456"
         }
     ]
 }
