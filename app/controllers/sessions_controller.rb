@@ -1,19 +1,22 @@
 class SessionsController < ApplicationController
-  def create_user
-    # Lógica de autenticação para user
-    session[:user_type] = "user"
-    redirect_to user_dashboard_path
+  def new
   end
 
-  def create_admin
-    # Lógica de autenticação para admin
-    session[:user_type] = "admin"
-    redirect_to admin_dashboard_path
-  end
+  def create
+    user = User.find_by(matricula: params[:matricula])
 
+    if user&.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect_to root_path, notice: "Login realizado com sucesso!"
+    else
+      flash[:alert] = "Matrícula ou senha inválidos"
+      render :new
+    end
+  end
+  
   def destroy
-    # Lógica de autenticação para user
     session[:user_type] = nil
-    redirect_to root_path
+    session[:user_id] = nil
+    redirect_to root_path, notice: "Logout realizado com sucesso !"
   end
 end

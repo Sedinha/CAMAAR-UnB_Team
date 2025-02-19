@@ -1,0 +1,27 @@
+<h1>Importar Dados de Turmas</h1>
+
+<!-- Formulário para importar dados de turmas -->
+<%= form_with url: import_turmas_path, method: :post, local: true, multipart: true do %>
+  <div>
+    <label for="turma_file">Importar Turmas (JSON):</label>
+    <%= file_field_tag :file, id: "turma_file", accept: ".json" %>
+  </div>
+  <div>
+    <%= submit_tag "Importar Turmas" %>
+  </div>
+<% end %>
+
+<hr>
+
+<h2>Importar Membros da Turma</h2>
+
+<!-- Formulário para importar membros (professores e alunos) -->
+<%= form_with url: import_members_turmas_path, method: :post, local: true, multipart: true do %>
+  <div>
+    <label for="members_file">Importar Membros (JSON):</label>
+    <%= file_field_tag :file, id: "members_file", accept: ".json" %>
+  </div>
+  <div>
+    <%= submit_tag "Importar Membros" %>
+  </div>
+<% end %>

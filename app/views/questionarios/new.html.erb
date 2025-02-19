@@ -1,0 +1,17 @@
+<h1>Criar Questionário</h1>
+
+<%= form_with model: @questionario, local: true do |form| %>
+  <div>
+    <%= form.label :nome %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div>
+    <%= form.label :turma_id, "Turma" %>
+    <%= form.collection_select :turma_id, @turmas, :id, :codigo %>
+  </div>
+
+  <div>
+    <%= form.submit "Criar Questionário" %>
+  </div>
+<% end %>
