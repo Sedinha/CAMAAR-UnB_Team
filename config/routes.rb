@@ -8,6 +8,9 @@ Rails.application.routes.draw do
 
   post "/login", to: "home#create"
 
+  # Rotas para admin
+  get "admin/management", to: "admin#management"
+  
   # Rotas de Login
   # get "/admin_login", to: "home#admin_login"
   # get "/user_login", to: "home#user_login"
@@ -36,6 +39,13 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
+  # Rota para página de importação de arquivos
+  get 'turmas/import_page', to: 'turmas#import_page', as: :import_turmas_page
+
+  # Rotas para importação de arquivos
+  post 'turmas/import', to: 'turmas#import', as: :import_turmas
+  post 'turmas/import_members', to: 'turmas#import_members', as: :import_members_turmas
+
   # Rotas para banco de dados
   resources :turmas
   resources :professores
@@ -44,11 +54,7 @@ Rails.application.routes.draw do
   resources :matriculas
   resources :professor_disciplinas
 
-  # Rotas para upload de arquivos
-  resources :turmas do
-    collection { post :import }
-    collection { post :import_members }
-  end
+
   # para dar logout
   delete "logout", to: "sessions#destroy"
 end

@@ -39,6 +39,9 @@ class TurmasController < ApplicationController
     redirect_to turmas_path, notice: "Turma excluída com sucesso."
   end
 
+  def import_page
+  end
+
   # importa os dados de turmas
   def import
     file = params[:file]
