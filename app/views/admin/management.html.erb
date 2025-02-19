@@ -1,7 +1,43 @@
-<h1>Gerenciamento</h1>
-<div class="management-buttons">
-  <%= link_to "Importar Dados", import_turmas_page_path, class: "management-button" %>
-  <%= link_to "Editar Templates", templates_path, class: "management-button" %>
-  <button class="management-button">Enviar Formularios</button>
-  <button class="management-button">Resultados</button>
+<div class="management-container">
+  <h1>Gerenciamento</h1>
+  
+  <div class="management-section">
+    <h2>Gestão Acadêmica</h2>
+    <div class="management-buttons">
+      <%= link_to disciplinas_path, class: "management-button" do %>
+        <i class="fas fa-book"></i>
+        <span>Gerenciar Disciplinas</span>
+      <% end %>
+
+      <%= link_to turmas_path, class: "management-button" do %>
+        <i class="fas fa-chalkboard"></i>
+        <span>Gerenciar Turmas</span>
+      <% end %>
+
+      <%= link_to import_turmas_page_path, class: "management-button" do %>
+        <i class="fas fa-file-import"></i>
+        <span>Importar Dados</span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="management-section">
+    <h2>Gestão de Avaliações</h2>
+    <div class="management-buttons">
+      <%= link_to templates_path, class: "management-button" do %>
+        <i class="fas fa-file-alt"></i>
+        <span>Editar Templates</span>
+      <% end %>
+
+      <%= link_to "#", class: "management-button" do %>
+        <i class="fas fa-paper-plane"></i>
+        <span>Enviar Formulários</span>
+      <% end %>
+
+      <%= link_to "#", class: "management-button" do %>
+        <i class="fas fa-chart-bar"></i>
+        <span>Resultados</span>
+      <% end %>
+    </div>
+  </div>
 </div>

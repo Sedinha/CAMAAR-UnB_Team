@@ -1,0 +1,41 @@
+<div class="form-container">
+  <h1>Nova Disciplina</h1>
+
+  <%= form_with(model: @disciplina, local: true, class: "disciplina-form") do |f| %>
+    <% if @disciplina.errors.any? %>
+      <div class="error-messages">
+        <h2><%= pluralize(@disciplina.errors.count, "erro") %> encontrado:</h2>
+        <ul>
+          <% @disciplina.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :codigo, "Código da Disciplina" %>
+      <%= f.text_field :codigo, required: true, placeholder: "Ex: CIC0000" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :nome, "Nome da Disciplina" %>
+      <%= f.text_field :nome, required: true, placeholder: "Ex: Programação Competitiva" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :departamento_id, "Departamento" %>
+      <%= f.collection_select :departamento_id, 
+                            Departamento.all, 
+                            :id, 
+                            :nome, 
+                            { prompt: "Selecione um departamento" }, 
+                            { required: true } %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit "Criar Disciplina", class: "btn-submit" %>
+      <%= link_to "Cancelar", disciplinas_path, class: "btn-cancel" %>
+    </div>
+  <% end %>
+</div>

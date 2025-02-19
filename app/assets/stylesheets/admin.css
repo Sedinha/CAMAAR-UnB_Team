@@ -8,7 +8,25 @@
     flex-direction: column;
     align-items: center;
   }
+  .management-section {
+    margin-bottom: 2rem;
+  }
   
+  .management-section h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #eee;
+  }
+  
+  .management-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+
   .management-button {
     background-color: green;
     color: white;
@@ -22,4 +40,17 @@
   
   .management-button:hover {
     background-color: darkgreen;
+    transform: translateY(-3px);
+    border-color: #0366d6;
+  }
+
+  .management-button i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #0366d6;
+  }
+  
+  .management-button span {
+    font-size: 1.1rem;
+    text-align: center;
   }

@@ -1,0 +1,26 @@
+<div class="disciplinas-container">
+  <h1>Disciplinas</h1>
+
+  <div class="disciplinas-grid">
+    <% @disciplinas.each do |disciplina| %>
+      <%= link_to disciplina_path(disciplina), class: "disciplina-card" do %>
+        <div class="disciplina-content">
+          <h3 class="disciplina-nome"><%= disciplina.nome %></h3>
+          <div class="disciplina-details">
+            <p><strong>Código:</strong> <%= disciplina.codigo %></p>
+            <p><strong>Departamento:</strong> <%= disciplina.departamento&.nome %></p>
+            <p><strong>Turmas:</strong> <%= disciplina.turmas.count %></p>
+            <p><strong>Professores:</strong> <%= disciplina.professores.count %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+    <%= link_to new_disciplina_path, class: "new-disciplina-card" do %>
+      <div class="add-disciplina">
+        <i class="fas fa-plus"></i>
+        <p>Adicionar Nova Disciplina</p>
+      </div>
+    <% end %>
+  </div>
+</div>

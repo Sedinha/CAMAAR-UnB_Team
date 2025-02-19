@@ -16,7 +16,7 @@ class TurmasController < ApplicationController
   def create
     @turma = Turma.new(turma_params)
     if @turma.save
-      redirect_to @turma, notice: "Turma criada com sucesso."
+      redirect_to turmas_path, notice: "Turma criada com sucesso."
     else
       render :new
     end
@@ -75,17 +75,17 @@ class TurmasController < ApplicationController
   # importa os membros de turmas
   def import_members
     file = params[:file]
-  
+
     if file.nil?
       redirect_to turmas_path, alert: "Nenhum arquivo selecionado."
       return
     end
-  
+
     data = JSON.parse(file.read)
-  
+
     data.each do |turma_data|
       turma = Turma.find_by(codigo: turma_data["classCode"], semestre: turma_data["semester"])
-  
+
       if turma
         # Importar o professor
         professor_data = turma_data["docente"]
@@ -97,7 +97,7 @@ class TurmasController < ApplicationController
           p.ocupacao = professor_data["ocupacao"]
         end
         turma.update(professor: professor)
-  
+
         # Importar os alunos
         turma_data["dicente"].each do |aluno_data|
           aluno = Aluno.find_or_create_by(matricula: aluno_data["matricula"]) do |a|
@@ -108,13 +108,13 @@ class TurmasController < ApplicationController
             a.ocupacao = aluno_data["ocupacao"]
             a.email = aluno_data["email"]
           end
-  
+
           # Criar matrícula
           Matricula.find_or_create_by(aluno: aluno, turma: turma)
         end
       end
     end
-  
+
     redirect_to turmas_path, notice: "Alunos e professores importados com sucesso!"
   end
 
@@ -125,13 +125,13 @@ class TurmasController < ApplicationController
   end
 
   def turma_params
-    params.require(:turma).permit(:codigo, :semestre, :horario, :usuario, :codigo) #usuario é o professor e codigo é a disciplina
+    params.require(:turma).permit(:codigo, :semestre, :horario, :usuario, :codigo) # usuario é o professor e codigo é a disciplina
   end
 end
 
-#rails g model Turma codigo semestre horario professor:references materia:references
-#rails g model Professor nome departamento formacao usuario email ocupacao
-#rails g model Aluno nome curso matricula usuario formacao ocupacao email
-#rails g model Disciplina codigo nome
-#rails g model Matricula aluno:references turma:references
-#rails g model ProfessorDisciplina professor:references disciplina:references
+# rails g model Turma codigo semestre horario professor:references materia:references
+# rails g model Professor nome departamento formacao usuario email ocupacao
+# rails g model Aluno nome curso matricula usuario formacao ocupacao email
+# rails g model Disciplina codigo nome
+# rails g model Matricula aluno:references turma:references
+# rails g model ProfessorDisciplina professor:references disciplina:references

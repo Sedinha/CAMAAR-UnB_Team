@@ -1,0 +1,40 @@
+<div class="form-container">
+  <h1>Nova Turma</h1>
+
+  <%= form_with(model: @turma, local: true, class: "turma-form") do |f| %>
+    <div class="form-group">
+      <%= f.label :codigo, "Código da Turma" %>
+      <%= f.text_field :codigo, required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :disciplina_id, "Disciplina" %>
+      <%= f.collection_select :disciplina_id, Disciplina.all, :id, :nome, 
+          { prompt: "Selecione uma disciplina" }, { required: true } %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :professor_id, "Professor" %>
+      <%= f.collection_select :professor_id, Professor.all, :id, :nome, 
+          { prompt: "Selecione um professor" }, { required: true } %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :semestre, "Semestre" %>
+      <%= f.text_field :semestre, required: true, 
+          placeholder: "Ex: 2024/1", 
+          pattern: '\d{4}/[1-2]' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :horario, "Horário" %>
+      <%= f.text_field :horario, required: true, 
+          placeholder: "Ex: Segunda e Quarta, 14:00-15:50" %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit "Criar Turma", class: "btn-submit" %>
+      <%= link_to "Cancelar", turmas_path, class: "btn-cancel" %>
+    </div>
+  <% end %>
+</div>

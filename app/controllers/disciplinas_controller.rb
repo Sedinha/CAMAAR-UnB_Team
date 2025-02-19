@@ -1,6 +1,13 @@
 class DisciplinasController < ApplicationController
   before_action :set_disciplina, only: %i[show edit update destroy]
-
+  # Actions disponíveis:
+  # 1. index   - lista todas disciplinas
+  # 2. show    - mostra uma disciplina específica
+  # 3. new     - formulário para nova disciplina
+  # 4. create  - salva nova disciplina
+  # 5. edit    - formulário para editar
+  # 6. update  - atualiza disciplina
+  # 7. destroy - remove disciplina
   def index
     @disciplinas = Disciplina.all
   end
@@ -42,7 +49,7 @@ class DisciplinasController < ApplicationController
   def set_disciplina
     @disciplina = Disciplina.find(params[:id])
   end
-
+  # Parâmetros permitidos para criar/atualizar:
   def disciplina_params
     params.require(:disciplina).permit(:codigo, :nome)
   end

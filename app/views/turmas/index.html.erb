@@ -1,0 +1,32 @@
+<div class="turmas-container">
+  <h1>Turmas</h1>
+
+  <div class="turmas-grid">
+    <% @turmas.each do |turma| %>
+      <%= link_to turma_path(turma), class: "turma-card" do %>
+        <div class="turma-info">
+          <h3><%= turma.disciplina.nome %></h3>
+          <p class="turma-codigo">Código: <%= turma.codigo %></p>
+          <p class="turma-professor">Prof: <%= turma.professor.nome %></p>
+          <p class="turma-semestre">Semestre: <%= turma.semestre %></p>
+          <p class="turma-horario"><%= turma.horario %></p>
+          <p class="turma-alunos">Alunos: <%= turma.matriculas.count %></p>
+        </div>
+      <% end %>
+    <% end %>
+
+    <%= link_to new_turma_path, class: "new-turma-card" do %>
+      <div class="add-turma">
+        <i class="fas fa-plus"></i>
+        <span>Nova Turma</span>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="import-section">
+    <%= link_to import_page_turmas_path, class: "import-button" do %>
+      <i class="fas fa-file-import"></i>
+      Importar Turmas
+    <% end %>
+  </div>
+</div>

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   # Rotas para admin
   get "admin/management", to: "admin#management"
-  
+
   # Rotas de Login
   # get "/admin_login", to: "home#admin_login"
   # get "/user_login", to: "home#user_login"
@@ -24,7 +24,10 @@ Rails.application.routes.draw do
   get "questionarios/results/:id", to: "questionarios#results", as: :questionario_results
   resources :respostas, only: [ :create ]
 
-  get "admin/management", to: "admin#management"
+  # Rotas de administração
+  namespace :admin do
+    get "management", to: "admin#management"
+  end
   # Rotas para exportação de resultados
   get "export_results", to: "results#export"
 
@@ -40,11 +43,11 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   # Rota para página de importação de arquivos
-  get 'turmas/import_page', to: 'turmas#import_page', as: :import_turmas_page
+  get "turmas/import_page", to: "turmas#import_page", as: :import_turmas_page
 
   # Rotas para importação de arquivos
-  post 'turmas/import', to: 'turmas#import', as: :import_turmas
-  post 'turmas/import_members', to: 'turmas#import_members', as: :import_members_turmas
+  post "turmas/import", to: "turmas#import", as: :import_turmas
+  post "turmas/import_members", to: "turmas#import_members", as: :import_members_turmas
 
   # Rotas para banco de dados
   resources :turmas
