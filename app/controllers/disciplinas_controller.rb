@@ -15,6 +15,12 @@ class DisciplinasController < ApplicationController
 
   def show
   end
+  # Puxa os professores na view de turmas
+  def professores
+    @disciplina = Disciplina.find(params[:id])
+    @professores = @disciplina.professores
+    render json: @professores
+  end
 
   def new
     @disciplina = Disciplina.new

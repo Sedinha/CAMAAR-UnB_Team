@@ -9,14 +9,25 @@
 
     <div class="form-group">
       <%= f.label :disciplina_id, "Disciplina" %>
-      <%= f.collection_select :disciplina_id, Disciplina.all, :id, :nome, 
-          { prompt: "Selecione uma disciplina" }, { required: true } %>
+      <%= f.collection_select :disciplina_id, 
+                            Disciplina.all, 
+                            :id, 
+                            :nome, 
+                            { prompt: "Selecione uma disciplina" }, 
+                            { required: true,
+                              onchange: 'updateProfessores(this.value)' } %>
     </div>
 
     <div class="form-group">
       <%= f.label :professor_id, "Professor" %>
-      <%= f.collection_select :professor_id, Professor.all, :id, :nome, 
-          { prompt: "Selecione um professor" }, { required: true } %>
+      <%= f.collection_select :professor_id, 
+                            [], 
+                            :id, 
+                            :nome, 
+                            { prompt: "Primeiro selecione uma disciplina" }, 
+                            { required: true,
+                              disabled: true,
+                              id: 'professor_select' } %>
     </div>
 
     <div class="form-group">
@@ -38,3 +49,29 @@
     </div>
   <% end %>
 </div>
+
+<%= javascript_tag do %>
+  function updateProfessores(disciplinaId) {
+    if (disciplinaId) {
+      fetch(`/disciplinas/${disciplinaId}/professores`)
+        .then(response => response.json())
+        .then(data => {
+          const select = document.getElementById('professor_select');
+          select.disabled = false;
+          
+          // Limpa as opções atuais
+          select.innerHTML = '<option value="">Selecione um professor</option>';
+          
+          // Adiciona os novos professores
+          data.forEach(professor => {
+            const option = new Option(professor.nome, professor.id);
+            select.add(option);
+          });
+        });
+    } else {
+      const select = document.getElementById('professor_select');
+      select.disabled = true;
+      select.innerHTML = '<option value="">Primeiro selecione uma disciplina</option>';
+    }
+  }
+<% end %>
