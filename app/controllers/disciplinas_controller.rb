@@ -19,7 +19,9 @@ class DisciplinasController < ApplicationController
   def professores
     @disciplina = Disciplina.find(params[:id])
     @professores = @disciplina.professores
-    render json: @professores
+    respond_to do |format|
+      format.json { render json: @professores.map { |p| { id: p.id, nome: p.nome } } }
+    end
   end
 
   def new

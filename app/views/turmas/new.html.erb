@@ -15,7 +15,7 @@
                             :nome, 
                             { prompt: "Selecione uma disciplina" }, 
                             { required: true,
-                              onchange: 'updateProfessores(this.value)' } %>
+                              id: 'disciplina-select' } %>
     </div>
 
     <div class="form-group">
@@ -49,29 +49,3 @@
     </div>
   <% end %>
 </div>
-
-<%= javascript_tag do %>
-  function updateProfessores(disciplinaId) {
-    if (disciplinaId) {
-      fetch(`/disciplinas/${disciplinaId}/professores`)
-        .then(response => response.json())
-        .then(data => {
-          const select = document.getElementById('professor_select');
-          select.disabled = false;
-          
-          // Limpa as opções atuais
-          select.innerHTML = '<option value="">Selecione um professor</option>';
-          
-          // Adiciona os novos professores
-          data.forEach(professor => {
-            const option = new Option(professor.nome, professor.id);
-            select.add(option);
-          });
-        });
-    } else {
-      const select = document.getElementById('professor_select');
-      select.disabled = true;
-      select.innerHTML = '<option value="">Primeiro selecione uma disciplina</option>';
-    }
-  }
-<% end %>

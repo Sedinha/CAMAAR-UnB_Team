@@ -53,7 +53,11 @@ Rails.application.routes.draw do
   resources :turmas
   resources :professores
   resources :alunos
-  resources :disciplinas
+  resources :disciplinas do
+    member do
+      get "professores"
+    end
+  end
   resources :matriculas
   resources :professor_disciplinas
 

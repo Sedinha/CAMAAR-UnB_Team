@@ -8,4 +8,5 @@ import { initializeQuestionForm } from "./custom/templates";
 document.addEventListener("turbo:load", () => {
   initializeTopbar();
   initializeQuestionForm();
+  initializeTurmaForm();
 });
