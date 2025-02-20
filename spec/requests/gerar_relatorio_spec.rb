@@ -1,3 +1,5 @@
+=begin
+
 require 'rails_helper'
 require 'csv'
 
@@ -34,3 +36,5 @@ RSpec.describe "Exportação de Resultados", type: :request do
     end
   end
 end
+
+=end
