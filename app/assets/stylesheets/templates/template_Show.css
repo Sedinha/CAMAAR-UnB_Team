@@ -1,0 +1,36 @@
+.template-show {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background: #f9f9f9;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.template-show h2 {
+    margin-bottom: 10px;
+}
+
+.template-show ul {
+    padding: 0;
+    list-style: none;
+}
+
+.template-show li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: white;
+    background: #007bff;
+    border-radius: 5px;
+}
+
+.button.delete {
+    background: #dc3545;
+}

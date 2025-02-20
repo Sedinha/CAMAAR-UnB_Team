@@ -1,21 +1,26 @@
+<% content_for :page_title do %>
+    Detalhes da Template
+<% end %>
+
 <%= form_with(model: @template, local: true) do |form| %>
-    <div class="template">
-        <div class="template-detail">
-            <strong>Nome:</strong>
-            <p><%= @template.nome %></p>
-        </div>
+<div class="template-show">
+    <h2><%= @template.nome %></h2>
+    <p><strong>Semestre:</strong> <%= @template.semestre %></p>
+    <p><strong>Público-Alvo:</strong> <%= @template.publicoAlvo %></p>
 
-        <div class="template-detail">
-            <strong>Semestre:</strong>
-            <p><%= @template.semestre %></p>
-        </div>
+    <h3>Questões</h3>
+    <ul>
+        <% @template.questions.each do |question| %>
+            <li>
+                <strong><%= question.title %></strong> - <%= question.question_type.humanize %>
+                <p><%= question.content %></p>
+            </li>
+        <% end %>
+    </ul>
 
-        <div class="template-detail">
-            <strong>Público Alvo:</strong>
-            <p><%= @template.publicoAlvo %></p>
-        </div>
-    </div>
-
-    <%= link_to "voltar", templates_path, class: "button"%>
+    <%= link_to "Voltar", templates_path, class: "button" %>
+    <%= link_to "Editar", edit_template_path(@template), class: "button" %>
+    <%= link_to "Excluir", template_path(@template), data: { turbo_method: :delete, confirm: "Tem certeza que deseja excluir?" }, class: "button delete" %>
+</div>
 
 <% end %>
