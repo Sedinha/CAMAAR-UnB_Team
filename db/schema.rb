@@ -44,7 +44,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_07_185110) do
   create_table "disciplinas", force: :cascade do |t|
     t.string "codigo"
     t.string "nome"
-    t.bigint "departamento_id", null: false
+    t.bigint "departamento_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["departamento_id"], name: "index_disciplinas_on_departamento_id"
@@ -140,7 +140,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_02_07_185110) do
     t.string "codigo"
     t.string "semestre"
     t.string "horario"
-    t.bigint "professor_id", null: false
+    t.bigint "professor_id"
     t.bigint "disciplina_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
