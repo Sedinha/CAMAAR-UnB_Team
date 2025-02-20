@@ -47,7 +47,7 @@ class TurmasController < ApplicationController
     file = params[:file]
 
     if file.nil?
-      redirect_to turmas_path, alert: "Nenhum arquivo selecionado."
+      redirect_to import_turmas_page_path, alert: "Nenhum arquivo selecionado."
       return
     end
 
@@ -55,21 +55,27 @@ class TurmasController < ApplicationController
 
     data.each do |turma_data|
       # Encontra ou cria a Disciplina
-      disciplina = Disciplina.find_or_create_by(codigo: turma_data["code"]) do |d|
-        d.nome = turma_data["name"]
+      disciplina = Disciplina.find_or_initialize_by(codigo: turma_data["code"])
+
+      # Se a disciplina foi inicializada (não encontrada), salva as informações
+      if disciplina.new_record?
+        disciplina.nome = turma_data["name"]
+        disciplina.save!
       end
 
       # Encontra ou cria a Turma
-      turma = Turma.find_or_create_by(
+      turma = Turma.find_or_initialize_by(
         codigo: turma_data["class"]["classCode"],
         semestre: turma_data["class"]["semester"]
-      ) do |t|
-        t.horario = turma_data["class"]["time"]
-        t.materia = disciplina
-      end
+      )
+
+      # Atualiza os atributos (caso a turma já exista, isso garante que os dados fiquem consistentes)
+      turma.horario = turma_data["class"]["time"]
+      turma.disciplina = disciplina
+      turma.save!
     end
 
-    redirect_to turmas_path, notice: "Dados importados com sucesso!"
+    redirect_to import_turmas_page_path, notice: "Dados importados com sucesso!"
   end
 
   # importa os membros de turmas
@@ -77,7 +83,7 @@ class TurmasController < ApplicationController
     file = params[:file]
 
     if file.nil?
-      redirect_to turmas_path, alert: "Nenhum arquivo selecionado."
+      redirect_to import_turmas_page_path, alert: "Nenhum arquivo selecionado."
       return
     end
 
@@ -96,6 +102,11 @@ class TurmasController < ApplicationController
           p.email = professor_data["email"]
           p.ocupacao = professor_data["ocupacao"]
         end
+
+         # Associe o professor à disciplina da turma
+        disciplina = turma.disciplina
+        ProfessorDisciplina.find_or_create_by(professor: professor, disciplina: disciplina)
+        
         turma.update(professor: professor)
 
         # Importar os alunos
@@ -115,7 +126,7 @@ class TurmasController < ApplicationController
       end
     end
 
-    redirect_to turmas_path, notice: "Alunos e professores importados com sucesso!"
+    redirect_to import_turmas_page_path, notice: "Alunos e professores importados com sucesso!"
   end
 
   private

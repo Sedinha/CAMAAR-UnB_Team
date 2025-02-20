@@ -1,6 +1,6 @@
 class Disciplina < ApplicationRecord
-  belongs_to :departamento
+  belongs_to :departamento, optional: true
   has_many :professor_disciplinas
-  has_many :professores, through: :professor_disciplinas
+  has_many :professores, through: :professor_disciplinas, source: :professor
   has_many :turmas
 end
