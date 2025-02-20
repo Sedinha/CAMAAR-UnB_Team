@@ -102,6 +102,11 @@ class TurmasController < ApplicationController
           p.email = professor_data["email"]
           p.ocupacao = professor_data["ocupacao"]
         end
+
+         # Associe o professor à disciplina da turma
+        disciplina = turma.disciplina
+        ProfessorDisciplina.find_or_create_by(professor: professor, disciplina: disciplina)
+        
         turma.update(professor: professor)
 
         # Importar os alunos
