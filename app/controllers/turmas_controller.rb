@@ -106,7 +106,7 @@ class TurmasController < ApplicationController
          # Associe o professor à disciplina da turma
         disciplina = turma.disciplina
         ProfessorDisciplina.find_or_create_by(professor: professor, disciplina: disciplina)
-        
+
         turma.update(professor: professor)
 
         # Importar os alunos
@@ -136,7 +136,7 @@ class TurmasController < ApplicationController
   end
 
   def turma_params
-    params.require(:turma).permit(:codigo, :semestre, :horario, :usuario, :codigo) # usuario é o professor e codigo é a disciplina
+    params.require(:turma).permit(:codigo, :semestre, :horario, :professor_id, :disciplina_id) # usuario é o professor e codigo é a disciplina
   end
 end
 

@@ -51,6 +51,6 @@ class DisciplinasController < ApplicationController
   end
   # Parâmetros permitidos para criar/atualizar:
   def disciplina_params
-    params.require(:disciplina).permit(:codigo, :nome)
+    params.require(:disciplina).permit(:codigo, :nome, :departamento_id)
   end
 end
