@@ -10,6 +10,7 @@ class DisciplinasController < ApplicationController
   # 7. destroy - remove disciplina
   def index
     @disciplinas = Disciplina.all
+    # disciplinas_path aqui geraria "/disciplinas"
   end
 
   def show

@@ -67,3 +67,83 @@
     font-size: 2em;
     margin-bottom: 10px;
   }
+
+  /* Estilos para a página de show de disciplinas */
+.disciplina-show-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header-actions {
+  margin-bottom: 20px;
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: #f8f9fa;
+  color: #212529;
+  text-decoration: none;
+  border-radius: 4px;
+  border: 1px solid #dee2e6;
+  transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+  background-color: #e9ecef;
+  border-color: #ced4da;
+}
+
+.btn-back i {
+  margin-right: 8px;
+}
+
+.disciplina-details h1 {
+  color: #333;
+  margin-bottom: 24px;
+}
+
+.info-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+}
+
+.info-item {
+  margin-bottom: 16px;
+}
+
+.info-item:last-child {
+  margin-bottom: 0;
+}
+
+.info-item strong {
+  display: block;
+  color: #495057;
+  margin-bottom: 4px;
+}
+
+.info-item span {
+  color: #212529;
+}
+
+.professors-list,
+.turmas-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.professors-list li,
+.turmas-list li {
+  padding: 4px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.professors-list li:last-child,
+.turmas-list li:last-child {
+  border-bottom: none;
+}
