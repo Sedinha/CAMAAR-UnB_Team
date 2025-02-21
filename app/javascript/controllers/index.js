@@ -5,5 +5,5 @@ import  TurmaController from "./turma_controller"
 
 console.log("=== Registering Turma Controller ===")
 
-application.register("turma",TurmaController)
+//application.register("turma",TurmaController)
 eagerLoadControllersFrom("controllers", application)

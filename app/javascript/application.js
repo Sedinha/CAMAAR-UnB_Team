@@ -1,6 +1,6 @@
 // app/javascript/application.js
 import "@hotwired/turbo-rails"
-import "./controllers"
+import "controllers"
 import { initializeTopbar } from "./custom/topbar"
 import { initializeQuestionForm } from "./custom/templates"
 
@@ -11,4 +11,4 @@ document.addEventListener("turbo:load", () => {
   initializeQuestionForm();
 
 });
-import "controllers"
+

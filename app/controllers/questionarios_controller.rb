@@ -1,5 +1,7 @@
 class QuestionariosController < ApplicationController
   before_action :authenticate_admin!, only: [ :new, :create ]
+  before_action :set_turma, only: [ :new, :create ]
+  before_action :set_questionario, only: [ :show, :edit, :update, :destroy ]
 
   def new
     @questionario = Questionario.new
