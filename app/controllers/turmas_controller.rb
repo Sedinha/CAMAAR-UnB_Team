@@ -46,7 +46,7 @@ class TurmasController < ApplicationController
   def import
     file = params[:file]
 
-    if file.nil?
+    if file.nil? #|| !file.respond_to?(:read)
       redirect_to import_turmas_page_path, alert: "Nenhum arquivo selecionado."
       return
     end

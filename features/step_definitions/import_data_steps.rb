@@ -1,26 +1,16 @@
-Given('que eu estou logado como administrador') do
-  @admin = FactoryBot.create(:admin)
-  login_as(@admin, scope: :admin)
-end
-
-Given('eu estou na página de {string}') do |pagina|
-  visit path_to(pagina)
+Given('eu estou na página de importação') do
+  visit import_turmas_page_path
 end
 
 When('eu seleciono o arquivo JSON do SIGAA') do
-  attach_file('file', Rails.root.join('spec', 'fixtures', 'files', 'sigaa_data.json'))
+  attach_file('turma_file', Rails.root.join('spec', 'fixtures', 'files', 'valid_turmas.json'))
 end
 
-When('eu clico em {string}') do |botao|
-  click_button botao
-end
-
-Then('eu devo ver a mensagem {string}') do |mensagem|
-  expect(page).to have_content(mensagem)
+When('eu clico em Importar Turmas') do
+  click_button 'Importar Turmas'
 end
 
 Then('os novos registros devem aparecer no sistema') do
   expect(Turma.count).to be > 0
-  expect(Materia.count).to be > 0
-  expect(Participante.count).to be > 0
+  expect(Disciplina.count).to be > 0
 end

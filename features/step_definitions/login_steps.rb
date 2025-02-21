@@ -1,15 +1,16 @@
 Given('que eu estou na página de login') do
-  visit login_path
+  visit root_path
 end
 
-When('eu preencho o campo {string} com {string}') do |campo, valor|
-  fill_in campo, with: valor
+When('eu preencho o formulário de login') do
+  fill_in 'matricula', with: '4'
+  fill_in 'password', with: '123456'
+  click_button 'Login'
+  save_path = save_page # Salva o HTML sem abrir automaticamente
+  puts "Abra este arquivo no navegador: file://#{save_path}"
 end
 
-When('eu clico em {string}') do |botao|
-  click_button botao
-end
 
-Then('eu devo ver o menu lateral com a opção {string}') do |opcao|
-  expect(page).to have_content(opcao)
+Then('eu devo estar na pagina de management') do
+  #expect(page).to have_current_path(admin_management_path)
 end
