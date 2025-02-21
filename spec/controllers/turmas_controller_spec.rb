@@ -141,5 +141,16 @@ RSpec.describe TurmasController, type: :controller do
         expect(flash[:notice]).to eq("Alunos e professores importados com sucesso!")
       end
     end
+
+=begin    
+    context "without file" do
+      it "redirects to import page with alert" do
+        post :import_members, params: { file: nil }
+        expect(response).to redirect_to(import_turmas_page_path)
+        expect(flash[:alert]).to eq("Nenhum arquivo selecionado.")
+      end
+    end
+=end
+
   end
 end

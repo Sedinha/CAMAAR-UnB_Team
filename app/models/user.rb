@@ -12,8 +12,8 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }, on: :create
   validates :role, presence: true
 
-  enum role: { user: 0, admin: 1 }
-
+ # enum role: { user: 0, admin: 1 }
+  enum :role, { user: 0, admin: 1 }
   private
 
   def matricula_existe_no_sistema
