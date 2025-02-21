@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  # Função para criar um novo usuário
   def create
     @user = User.new(user_params)
 

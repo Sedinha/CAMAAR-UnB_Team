@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Projeto_CAMAAR - RDoc Documentation</title>
+
+  <meta name="keywords" content="ruby,documentation,Projeto_CAMAAR">
+  <meta name="description" content="Projeto_CAMAAR: Projeto CAMAAR ## Introdução O sistema CAMAAR (Sistema para Avaliação de Atividades Acadêmicas Remotas do CIC - Ciência da Computação) foi desenvolvi">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="file">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#label-Projeto+CAMAAR">Projeto CAMAAR</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Introdu-C3-A7-C3-A3o">Introdução</a>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Planejamento">Planejamento</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-1.+Escopo+do+Software">1. Escopo do Software</a>
+          <li>      <a href="#label-2.+Descri-C3-A7-C3-A3o+do+Problema">2. Descrição do Problema</a>
+          <li>      <a href="#label-3.+Proposta+de+Desenvolvimento">3. Proposta de Desenvolvimento</a>
+          <li>
+            <details open>
+              <summary>      <a href="#label-4.+An-C3-A1lise+de+Requisitos">4. Análise de Requisitos</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-4.1+Requisitos+Funcionais">4.1 Requisitos Funcionais</a>
+          <li>      <a href="#label-4.2+Requisitos+de+Qualidade+-28N-C3-A3o+Funcionais-29">4.2 Requisitos de Qualidade (Não Funcionais)</a>
+          <li>      <a href="#label-4.3+Requisitos+de+Restri-C3-A7-C3-A3o">4.3 Requisitos de Restrição</a>
+
+              </ul>
+            </details>
+          </li>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Backlog+do+Projeto+CAMAAR">Backlog do Projeto CAMAAR</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>
+            <details open>
+              <summary>      <a href="#label-Hist-C3-B3rias+de+Usu-C3-A1rio">Histórias de Usuário</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>
+            <details open>
+              <summary>      <a href="#label-1.+Cadastro+de+Usu-C3-A1rios">1. Cadastro de Usuários</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-HU01-3A+Cadastro+de+Alunos">HU01: Cadastro de Alunos</a>
+          <li>      <a href="#label-HU02-3A+Cadastro+de+Professores">HU02: Cadastro de Professores</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-2.+Autentica-C3-A7-C3-A3o+e+Autoriza-C3-A7-C3-A3o">2. Autenticação e Autorização</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-HU03-3A+Login+de+Usu-C3-A1rios">HU03: Login de Usuários</a>
+          <li>      <a href="#label-HU04-3A+Logout+de+Usu-C3-A1rios">HU04: Logout de Usuários</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-3.+Gerenciamento+de+Disciplinas+e+Turmas">3. Gerenciamento de Disciplinas e Turmas</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-HU05-3A+Cadastro+de+Disciplinas">HU05: Cadastro de Disciplinas</a>
+          <li>      <a href="#label-HU06-3A+Cadastro+de+Turmas">HU06: Cadastro de Turmas</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-4.+Gerenciamento+de+Avalia-C3-A7-C3-B5es">4. Gerenciamento de Avaliações</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-HU07-3A+Cria-C3-A7-C3-A3o+de+Avalia-C3-A7-C3-B5es">HU07: Criação de Avaliações</a>
+          <li>      <a href="#label-HU08-3A+Responder+Avalia-C3-A7-C3-B5es">HU08: Responder Avaliações</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-5.+Relat-C3-B3rios+e+Feedback">5. Relatórios e Feedback</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-HU09-3A+Visualiza-C3-A7-C3-A3o+de+Resultados">HU09: Visualização de Resultados</a>
+          <li>      <a href="#label-HU10-3A+Gera-C3-A7-C3-A3o+de+Relat-C3-B3rios">HU10: Geração de Relatórios</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-6.+Notifica-C3-A7-C3-B5es">6. Notificações</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-HU11-3A+Notifica-C3-A7-C3-B5es+de+Novas+Avalia-C3-A7-C3-B5es">HU11: Notificações de Novas Avaliações</a>
+          <li>      <a href="#label-HU12-3A+Notifica-C3-A7-C3-B5es+de+Resultados+de+Avalia-C3-A7-C3-B5es">HU12: Notificações de Resultados de Avaliações</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-7.+Templates+de+Avalia-C3-A7-C3-B5es">7. Templates de Avaliações</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-HU13-3A+Cria-C3-A7-C3-A3o+de+Templates">HU13: Criação de Templates</a>
+          <li>      <a href="#label-HU14-3A+Utiliza-C3-A7-C3-A3o+de+Templates">HU14: Utilização de Templates</a>
+
+              </ul>
+            </details>
+          </li>
+
+              </ul>
+            </details>
+          </li>
+
+              </ul>
+            </details>
+          </li>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
+  
+<div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+    <li><a href="./DBConnection_session_sql.html">DBConnection.session.sql</a>
+    <li><a href="./Dockerfile.html">Dockerfile</a>
+    <li><a href="./Gemfile.html">Gemfile</a>
+    <li><a href="./Gemfile_lock.html">Gemfile.lock</a>
+    <li><a href="./Projeto_CAMAAR_md.html">Projeto_CAMAAR</a>
+    <li><a href="./README_md.html">README</a>
+    <li><a href="./Rakefile.html">Rakefile</a>
+    <li><details><summary>app</summary>
+    <ul class="link-list">
+      <li><a href="./app/assets/config/manifest_js.html">manifest.js</a>
+      <li><a href="./app/assets/stylesheets/admin_css.html">admin.css</a>
+      <li><a href="./app/assets/stylesheets/application_css.html">application.css</a>
+      <li><a href="./app/assets/stylesheets/disciplinas_css.html">disciplinas.css</a>
+      <li><a href="./app/assets/stylesheets/home_css.html">home.css</a>
+      <li><a href="./app/assets/stylesheets/templates/template_Show_css.html">template_Show.css</a>
+      <li><a href="./app/assets/stylesheets/templates/templates_card_css.html">templates_card.css</a>
+      <li><a href="./app/assets/stylesheets/topbar_css.html">topbar.css</a>
+      <li><a href="./app/assets/stylesheets/turmas_css.html">turmas.css</a>
+      <li><a href="./app/javascript/application_js.html">application.js</a>
+      <li><a href="./app/javascript/controllers/application_js.html">application.js</a>
+      <li><a href="./app/javascript/controllers/hello_controller_js.html">hello_controller.js</a>
+      <li><a href="./app/javascript/controllers/index_js.html">index.js</a>
+      <li><a href="./app/javascript/custom/templates_js.html">templates.js</a>
+      <li><a href="./app/javascript/custom/topbar_js.html">topbar.js</a>
+      <li><a href="./app/views/pwa/service-worker_js.html">service-worker.js</a>
+    </ul></details>
+    <li><a href="./bin/docker-entrypoint.html">docker-entrypoint</a>
+    <li><a href="./class_members_json.html">class_members.json</a>
+    <li><a href="./classes_json.html">classes.json</a>
+    <li><a href="./config_ru.html">config.ru</a>
+    <li><a href="./config/credentials_yml_enc.html">credentials.yml.enc</a>
+    <li><details><summary>features</summary>
+    <ul class="link-list">
+      <li><a href="./features/scenarios/answer_form_feature.html">answer.form.feature</a>
+      <li><a href="./features/scenarios/cadastro_user_feature.html">cadastro_user.feature</a>
+      <li><a href="./features/scenarios/form_management_feature.html">form_management.feature</a>
+      <li><a href="./features/scenarios/gerar_relatorio_feature.html">gerar_relatorio.feature</a>
+      <li><a href="./features/scenarios/import_data_feature.html">import_data.feature</a>
+      <li><a href="./features/scenarios/login_feature.html">login.feature</a>
+      <li><a href="./features/scenarios/template_creation_feature.html">template_creation.feature</a>
+      <li><a href="./features/scenarios/template_management_feature.html">template_management.feature</a>
+      <li><a href="./features/scenarios/template_visualization_feature.html">template_visualization.feature</a>
+    </ul></details>
+    <li><a href="./lib/tasks/cucumber_rake.html">cucumber.rake</a>
+    <li><a href="./log/test_log.html">test.log</a>
+    <li><details><summary>public</summary>
+    <ul class="link-list">
+      <li><a href="./public/404_html.html">404.html</a>
+      <li><a href="./public/406-unsupported-browser_html.html">406-unsupported-browser.html</a>
+      <li><a href="./public/422_html.html">422.html</a>
+      <li><a href="./public/500_html.html">500.html</a>
+      <li><a href="./public/robots_txt.html">robots</a>
+    </ul></details>
+    <li><details><summary>tmp</summary>
+    <ul class="link-list">
+      <li><a href="./tmp/capybara/capybara-202502202313065745472128_html.html">capybara-202502202313065745472128.html</a>
+      <li><a href="./tmp/capybara/capybara-202502202317448737618739_html.html">capybara-202502202317448737618739.html</a>
+      <li><a href="./tmp/capybara/capybara-202502202325081605346128_html.html">capybara-202502202325081605346128.html</a>
+      <li><a href="./tmp/capybara/capybara-202502202327452714037876_html.html">capybara-202502202327452714037876.html</a>
+      <li><a href="./tmp/capybara/capybara-20250220232857937555347_html.html">capybara-20250220232857937555347.html</a>
+      <li><a href="./tmp/capybara/capybara-202502202332286859657841_html.html">capybara-202502202332286859657841.html</a>
+      <li><a href="./tmp/capybara/capybara-202502210204342332794168_html.html">capybara-202502210204342332794168.html</a>
+      <li><a href="./tmp/capybara/capybara-202502210208208408457064_html.html">capybara-202502210208208408457064.html</a>
+      <li><a href="./tmp/capybara/capybara-202502210222043789534359_html.html">capybara-202502210222043789534359.html</a>
+      <li><a href="./tmp/capybara/capybara-202502210236467697343755_html.html">capybara-202502210236467697343755.html</a>
+      <li><a href="./tmp/capybara/capybara-202502210237249555186341_html.html">capybara-202502210237249555186341.html</a>
+      <li><a href="./tmp/capybara/capybara-202502210238416535121062_html.html">capybara-202502210238416535121062.html</a>
+      <li><a href="./tmp/capybara/capybara-202502210241053108496928_html.html">capybara-202502210241053108496928.html</a>
+      <li><a href="./tmp/capybara/capybara-202502210250063732680268_html.html">capybara-202502210250063732680268.html</a>
+      <li><a href="./tmp/capybara/capybara-202502210252181082528985_html.html">capybara-202502210252181082528985.html</a>
+      <li><a href="./tmp/capybara/capybara-202502210256092876350974_html.html">capybara-202502210256092876350974.html</a>
+      <li><a href="./tmp/capybara/capybara-202502210302243495772720_html.html">capybara-202502210302243495772720.html</a>
+      <li><a href="./tmp/capybara/capybara-202502211824523896872246_html.html">capybara-202502211824523896872246.html</a>
+      <li><a href="./tmp/capybara/capybara-202502211828207706874223_html.html">capybara-202502211828207706874223.html</a>
+      <li><a href="./tmp/capybara/capybara-202502211831553338300768_html.html">capybara-202502211831553338300768.html</a>
+      <li><a href="./tmp/capybara/capybara-202502211843119003399741_html.html">capybara-202502211843119003399741.html</a>
+      <li><a href="./tmp/capybara/capybara-20250221185112742302049_html.html">capybara-20250221185112742302049.html</a>
+      <li><a href="./tmp/local_secret_txt.html">local_secret</a>
+      <li><a href="./tmp/restart_txt.html">restart</a>
+      <li><a href="./tmp/rubycritic/app/channels/application_cable/channel_html.html">channel.html</a>
+      <li><a href="./tmp/rubycritic/app/channels/application_cable/connection_html.html">connection.html</a>
+      <li><a href="./tmp/rubycritic/app/controllers/admin_controller_html.html">admin_controller.html</a>
+      <li><a href="./tmp/rubycritic/app/controllers/alunos_controller_html.html">alunos_controller.html</a>
+      <li><a href="./tmp/rubycritic/app/controllers/application_controller_html.html">application_controller.html</a>
+      <li><a href="./tmp/rubycritic/app/controllers/disciplinas_controller_html.html">disciplinas_controller.html</a>
+      <li><a href="./tmp/rubycritic/app/controllers/home_controller_html.html">home_controller.html</a>
+      <li><a href="./tmp/rubycritic/app/controllers/matriculas_controller_html.html">matriculas_controller.html</a>
+      <li><a href="./tmp/rubycritic/app/controllers/professor_disciplinas_controller_html.html">professor_disciplinas_controller.html</a>
+      <li><a href="./tmp/rubycritic/app/controllers/professores_controller_html.html">professores_controller.html</a>
+      <li><a href="./tmp/rubycritic/app/controllers/questionarios_controller_html.html">questionarios_controller.html</a>
+      <li><a href="./tmp/rubycritic/app/controllers/results_controller_html.html">results_controller.html</a>
+      <li><a href="./tmp/rubycritic/app/controllers/sessions_controller_html.html">sessions_controller.html</a>
+      <li><a href="./tmp/rubycritic/app/controllers/templates_controller_html.html">templates_controller.html</a>
+      <li><a href="./tmp/rubycritic/app/controllers/turmas_controller_html.html">turmas_controller.html</a>
+      <li><a href="./tmp/rubycritic/app/controllers/users_controller_html.html">users_controller.html</a>
+      <li><a href="./tmp/rubycritic/app/helpers/admin_helper_html.html">admin_helper.html</a>
+      <li><a href="./tmp/rubycritic/app/helpers/alunos_helper_html.html">alunos_helper.html</a>
+      <li><a href="./tmp/rubycritic/app/helpers/application_helper_html.html">application_helper.html</a>
+      <li><a href="./tmp/rubycritic/app/helpers/disciplinas_helper_html.html">disciplinas_helper.html</a>
+      <li><a href="./tmp/rubycritic/app/helpers/home_helper_html.html">home_helper.html</a>
+      <li><a href="./tmp/rubycritic/app/helpers/matriculas_helper_html.html">matriculas_helper.html</a>
+      <li><a href="./tmp/rubycritic/app/helpers/professor_disciplinas_helper_html.html">professor_disciplinas_helper.html</a>
+      <li><a href="./tmp/rubycritic/app/helpers/professores_helper_html.html">professores_helper.html</a>
+      <li><a href="./tmp/rubycritic/app/helpers/templates_helper_html.html">templates_helper.html</a>
+      <li><a href="./tmp/rubycritic/app/helpers/turmas_helper_html.html">turmas_helper.html</a>
+      <li><a href="./tmp/rubycritic/app/helpers/user_helper_html.html">user_helper.html</a>
+      <li><a href="./tmp/rubycritic/app/jobs/application_job_html.html">application_job.html</a>
+      <li><a href="./tmp/rubycritic/app/mailers/application_mailer_html.html">application_mailer.html</a>
+      <li><a href="./tmp/rubycritic/app/models/aluno_html.html">aluno.html</a>
+      <li><a href="./tmp/rubycritic/app/models/application_record_html.html">application_record.html</a>
+      <li><a href="./tmp/rubycritic/app/models/coordenador_html.html">coordenador.html</a>
+      <li><a href="./tmp/rubycritic/app/models/departamento_html.html">departamento.html</a>
+      <li><a href="./tmp/rubycritic/app/models/disciplina_html.html">disciplina.html</a>
+      <li><a href="./tmp/rubycritic/app/models/matricula_html.html">matricula.html</a>
+      <li><a href="./tmp/rubycritic/app/models/professor_html.html">professor.html</a>
+      <li><a href="./tmp/rubycritic/app/models/professor_disciplina_html.html">professor_disciplina.html</a>
+      <li><a href="./tmp/rubycritic/app/models/questao_option_html.html">questao_option.html</a>
+      <li><a href="./tmp/rubycritic/app/models/question_html.html">question.html</a>
+      <li><a href="./tmp/rubycritic/app/models/questionario_html.html">questionario.html</a>
+      <li><a href="./tmp/rubycritic/app/models/respondido_html.html">respondido.html</a>
+      <li><a href="./tmp/rubycritic/app/models/resposta_html.html">resposta.html</a>
+      <li><a href="./tmp/rubycritic/app/models/template_html.html">template.html</a>
+      <li><a href="./tmp/rubycritic/app/models/turma_html.html">turma.html</a>
+      <li><a href="./tmp/rubycritic/app/models/user_html.html">user.html</a>
+      <li><a href="./tmp/rubycritic/assets/javascripts/application_js.html">application.js</a>
+      <li><a href="./tmp/rubycritic/assets/stylesheets/application_css.html">application.css</a>
+      <li><a href="./tmp/rubycritic/assets/vendor/javascripts/bootstrap_min_js.html">bootstrap.min.js</a>
+      <li><a href="./tmp/rubycritic/assets/vendor/javascripts/highcharts_src-4_0_1_js.html">highcharts.src-4.0.1.js</a>
+      <li><a href="./tmp/rubycritic/assets/vendor/javascripts/jquery_filtertable_min_js.html">jquery.filtertable.min.js</a>
+      <li><a href="./tmp/rubycritic/assets/vendor/javascripts/jquery_min_js.html">jquery.min.js</a>
+      <li><a href="./tmp/rubycritic/assets/vendor/javascripts/jquery_scrollTo_min_js.html">jquery.scrollTo.min.js</a>
+      <li><a href="./tmp/rubycritic/assets/vendor/javascripts/jquery_tablesorter_js.html">jquery.tablesorter.js</a>
+      <li><a href="./tmp/rubycritic/assets/vendor/javascripts/jquery_tablesorter_min_js.html">jquery.tablesorter.min.js</a>
+      <li><a href="./tmp/rubycritic/assets/vendor/javascripts/jquery_timeago_js.html">jquery.timeago.js</a>
+      <li><a href="./tmp/rubycritic/assets/vendor/javascripts/prettify_js.html">prettify.js</a>
+      <li><a href="./tmp/rubycritic/assets/vendor/stylesheets/bootstrap_min_css.html">bootstrap.min.css</a>
+      <li><a href="./tmp/rubycritic/assets/vendor/stylesheets/font-awesome_min_css.html">font-awesome.min.css</a>
+      <li><a href="./tmp/rubycritic/assets/vendor/stylesheets/prettify_css.html">prettify.css</a>
+      <li><a href="./tmp/rubycritic/assets/vendor/stylesheets/prettify_custom_theme_css.html">prettify.custom_theme.css</a>
+      <li><a href="./tmp/rubycritic/code_index_html.html">code_index.html</a>
+      <li><a href="./tmp/rubycritic/config/application_html.html">application.html</a>
+      <li><a href="./tmp/rubycritic/config/boot_html.html">boot.html</a>
+      <li><a href="./tmp/rubycritic/config/environment_html.html">environment.html</a>
+      <li><a href="./tmp/rubycritic/config/environments/development_html.html">development.html</a>
+      <li><a href="./tmp/rubycritic/config/environments/production_html.html">production.html</a>
+      <li><a href="./tmp/rubycritic/config/environments/test_html.html">test.html</a>
+      <li><a href="./tmp/rubycritic/config/importmap_html.html">importmap.html</a>
+      <li><a href="./tmp/rubycritic/config/initializers/assets_html.html">assets.html</a>
+      <li><a href="./tmp/rubycritic/config/initializers/content_security_policy_html.html">content_security_policy.html</a>
+      <li><a href="./tmp/rubycritic/config/initializers/filter_parameter_logging_html.html">filter_parameter_logging.html</a>
+      <li><a href="./tmp/rubycritic/config/initializers/inflections_html.html">inflections.html</a>
+      <li><a href="./tmp/rubycritic/config/initializers/permissions_policy_html.html">permissions_policy.html</a>
+      <li><a href="./tmp/rubycritic/config/puma_html.html">puma.html</a>
+      <li><a href="./tmp/rubycritic/config/routes_html.html">routes.html</a>
+      <li><a href="./tmp/rubycritic/db/migrate/20250205000000_create_departamentos_html.html">20250205000000_create_departamentos.html</a>
+      <li><a href="./tmp/rubycritic/db/migrate/20250205071439_create_alunos_html.html">20250205071439_create_alunos.html</a>
+      <li><a href="./tmp/rubycritic/db/migrate/20250205071655_create_professors_html.html">20250205071655_create_professors.html</a>
+      <li><a href="./tmp/rubycritic/db/migrate/20250205072252_create_disciplinas_html.html">20250205072252_create_disciplinas.html</a>
+      <li><a href="./tmp/rubycritic/db/migrate/20250205072253_create_turmas_html.html">20250205072253_create_turmas.html</a>
+      <li><a href="./tmp/rubycritic/db/migrate/20250205072332_create_matriculas_html.html">20250205072332_create_matriculas.html</a>
+      <li><a href="./tmp/rubycritic/db/migrate/20250205073847_create_professor_disciplinas_html.html">20250205073847_create_professor_disciplinas.html</a>
+      <li><a href="./tmp/rubycritic/db/migrate/20250207185030_create_users_html.html">20250207185030_create_users.html</a>
+      <li><a href="./tmp/rubycritic/db/migrate/20250207185040__create_coordenadors_html.html">20250207185040__create_coordenadors.html</a>
+      <li><a href="./tmp/rubycritic/db/migrate/20250207185060_create_templates_html.html">20250207185060_create_templates.html</a>
+      <li><a href="./tmp/rubycritic/db/migrate/20250207185070_create_questions_html.html">20250207185070_create_questions.html</a>
+      <li><a href="./tmp/rubycritic/db/migrate/20250207185080_create_questionarios_html.html">20250207185080_create_questionarios.html</a>
+      <li><a href="./tmp/rubycritic/db/migrate/20250207185090_create_respostas_html.html">20250207185090_create_respostas.html</a>
+      <li><a href="./tmp/rubycritic/db/migrate/20250207185100_create_respondidos_html.html">20250207185100_create_respondidos.html</a>
+      <li><a href="./tmp/rubycritic/db/migrate/20250207185110_create_questao_options_html.html">20250207185110_create_questao_options.html</a>
+      <li><a href="./tmp/rubycritic/db/schema_html.html">schema.html</a>
+      <li><a href="./tmp/rubycritic/db/seeds_html.html">seeds.html</a>
+      <li><a href="./tmp/rubycritic/features/step_definitions/answer_form_steps_html.html">answer_form_steps.html</a>
+      <li><a href="./tmp/rubycritic/features/step_definitions/cadastro_user_steps_html.html">cadastro_user_steps.html</a>
+      <li><a href="./tmp/rubycritic/features/step_definitions/form_management_steps_html.html">form_management_steps.html</a>
+      <li><a href="./tmp/rubycritic/features/step_definitions/gerar_relatorio_html.html">gerar_relatorio.html</a>
+      <li><a href="./tmp/rubycritic/features/step_definitions/import_data_steps_html.html">import_data_steps.html</a>
+      <li><a href="./tmp/rubycritic/features/step_definitions/login_steps_html.html">login_steps.html</a>
+      <li><a href="./tmp/rubycritic/features/step_definitions/template_creation_steps_html.html">template_creation_steps.html</a>
+      <li><a href="./tmp/rubycritic/features/step_definitions/template_management_steps_html.html">template_management_steps.html</a>
+      <li><a href="./tmp/rubycritic/features/step_definitions/template_visualization_steps_html.html">template_visualization_steps.html</a>
+      <li><a href="./tmp/rubycritic/features/support/env_html.html">env.html</a>
+      <li><a href="./tmp/rubycritic/features/support/hooks_html.html">hooks.html</a>
+      <li><a href="./tmp/rubycritic/lib/import_service_html.html">import_service.html</a>
+      <li><a href="./tmp/rubycritic/overview_html.html">overview.html</a>
+      <li><a href="./tmp/rubycritic/simple_cov_index_html.html">simple_cov_index.html</a>
+      <li><a href="./tmp/rubycritic/smells_index_html.html">smells_index.html</a>
+    </ul></details>
+    <li><a href="./yarn_lock.html">yarn.lock</a>
+  </ul>
+</div>
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.12.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-label="Page Projeto_CAMAAR.md">
+
+<h1 id="label-Projeto+CAMAAR">Projeto CAMAAR<span><a href="#label-Projeto+CAMAAR">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h2 id="label-Introdu-C3-A7-C3-A3o">Introdução<span><a href="#label-Introdu-C3-A7-C3-A3o">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>O sistema CAMAAR (Sistema para Avaliação de Atividades Acadêmicas Remotas do CIC - Ciência da Computação) foi desenvolvido com o objetivo de facilitar a avaliação de atividades acadêmicas realizadas remotamente pelos alunos do curso de Ciência da Computação. Desenvolvido em Ruby on Rails, o sistema permite que administradores gerenciem turmas, matérias e formulários de avaliação, enquanto os alunos podem responder às avaliações de suas respectivas turmas e matérias.</p>
+
+<h2 id="label-Planejamento">Planejamento<span><a href="#label-Planejamento">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-1.+Escopo+do+Software">1. Escopo do Software<span><a href="#label-1.+Escopo+do+Software">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>O sistema proposto visa desenvolver uma plataforma de avaliação acadêmica para instituições de ensino, focada em facilitar o processo de avaliação de atividades acadêmicas tanto para alunos quanto para professores. O sistema permitirá o gerenciamento de avaliações, criação de templates de avaliação, autenticação de usuários, e a atribuição de disciplinas e turmas.</p>
+
+<h3 id="label-2.+Descri-C3-A7-C3-A3o+do+Problema">2. Descrição do Problema<span><a href="#label-2.+Descri-C3-A7-C3-A3o+do+Problema">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Atualmente, o processo de avaliação acadêmica em muitas instituições é manual e demorado, o que pode levar a erros e ineficiências. Professores e alunos enfrentam dificuldades na gestão de avaliações, feedback e acompanhamento de desempenho. Há necessidade de um sistema centralizado que permita uma melhor gestão e automação desses processos.</p>
+
+<h3 id="label-3.+Proposta+de+Desenvolvimento">3. Proposta de Desenvolvimento<span><a href="#label-3.+Proposta+de+Desenvolvimento">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><strong>Linguagem de programação</strong>: Ruby on Rails</p>
+</li><li>
+<p><strong>Banco de dados</strong>: PostgreSQL</p>
+</li><li>
+<p><strong>Recursos necessários</strong>:</p>
+</li><li>
+<p>Servidor de aplicação (Heroku, AWS, etc.)</p>
+</li><li>
+<p>Sistema de controle de versão (GitHub)</p>
+</li><li>
+<p>Ferramentas de CI/CD (GitHub Actions)</p>
+</li><li>
+<p>Frameworks de front-end (HTML, CSS, JavaScript)</p>
+</li></ul>
+
+<h3 id="label-4.+An-C3-A1lise+de+Requisitos">4. Análise de Requisitos<span><a href="#label-4.+An-C3-A1lise+de+Requisitos">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<h4 id="label-4.1+Requisitos+Funcionais">4.1 Requisitos Funcionais<span><a href="#label-4.1+Requisitos+Funcionais">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre>\item \textbf{RF1}: O sistema deve permitir que professores e alunos se cadastrem e informem dados pessoais.
+    \item \textbf{RF2}: O sistema deve permitir que professores criem e gerenciem avaliações.
+    \item \textbf{RF3}: O sistema deve permitir que alunos visualizem e respondam avaliações.
+    \item \textbf{RF4}: O sistema deve gerar relatórios de desempenho para alunos e turmas.
+    \item \textbf{RF5}: O sistema deve permitir a criação de templates de avaliação reutilizáveis.
+    \item \textbf{RF6}: O sistema deve fornecer autenticação e autorização para diferentes tipos de usuários (alunos, professores, administradores).
+    \item \textbf{RF7}: O sistema deve permitir a associação de alunos e professores a disciplinas e turmas específicas.
+    \item \textbf{RF8}: O sistema deve enviar notificações por e-mail para eventos importantes (novas avaliações, resultados de avaliações, etc.).</pre>
+
+<h4 id="label-4.2+Requisitos+de+Qualidade+-28N-C3-A3o+Funcionais-29">4.2 Requisitos de Qualidade (Não Funcionais)<span><a href="#label-4.2+Requisitos+de+Qualidade+-28N-C3-A3o+Funcionais-29">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre>\item \textbf{RQ1}: O sistema deve ser responsivo e acessível em diferentes dispositivos (desktop, tablet, smartphone).
+    \item \textbf{RQ2}: O sistema deve garantir a segurança dos dados dos usuários através de criptografia e controle de acesso.
+    \item \textbf{RQ3}: O sistema deve ser disponível e escalável para suportar um grande número de usuários simultâneos.
+    \item \textbf{RQ4}: O sistema deve ter um tempo de resposta aceitável (menos de 2 segundos para operações comuns).
+    \item \textbf{RQ5}: O sistema deve ser mantível e extensível para futuras melhorias e adições de funcionalidades.</pre>
+
+<h4 id="label-4.3+Requisitos+de+Restri-C3-A7-C3-A3o">4.3 Requisitos de Restrição<span><a href="#label-4.3+Requisitos+de+Restri-C3-A7-C3-A3o">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre>\item \textbf{RR1}: O sistema deve ser desenvolvido utilizando Ruby on Rails como framework principal.
+    \item \textbf{RR2}: O banco de dados deve ser PostgreSQL.
+    \item \textbf{RR3}: O sistema deve ser integrado com sistemas de autenticação externos (por exemplo, OAuth).
+    \item \textbf{RR4}: O desenvolvimento deve seguir práticas ágeis, com entregas incrementais e feedback contínuo.</pre>
+
+<h2 id="label-Backlog+do+Projeto+CAMAAR">Backlog do Projeto CAMAAR<span><a href="#label-Backlog+do+Projeto+CAMAAR">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Hist-C3-B3rias+de+Usu-C3-A1rio">Histórias de Usuário<span><a href="#label-Hist-C3-B3rias+de+Usu-C3-A1rio">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<h4 id="label-1.+Cadastro+de+Usu-C3-A1rios">1. Cadastro de Usuários<span><a href="#label-1.+Cadastro+de+Usu-C3-A1rios">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<h5 id="label-HU01-3A+Cadastro+de+Alunos">HU01: Cadastro de Alunos<span><a href="#label-HU01-3A+Cadastro+de+Alunos">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><strong>Como</strong> um aluno, <strong>eu quero</strong> me cadastrar no sistema, <strong>para que</strong> eu possa acessar as avaliações da minha turma.</p>
+<ul><li>
+<p><strong>Critérios de Aceitação</strong>:</p>
+</li><li>
+<p>O aluno deve fornecer nome, email, matrícula e senha.</p>
+</li><li>
+<p>O sistema deve validar a unicidade do email e da matrícula.</p>
+</li><li>
+<p>O aluno deve receber um email de confirmação após o cadastro.</p>
+</li></ul>
+
+<h5 id="label-HU02-3A+Cadastro+de+Professores">HU02: Cadastro de Professores<span><a href="#label-HU02-3A+Cadastro+de+Professores">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><strong>Como</strong> um professor, <strong>eu quero</strong> me cadastrar no sistema, <strong>para que</strong> eu possa criar e gerenciar avaliações.</p>
+<ul><li>
+<p><strong>Critérios de Aceitação</strong>:</p>
+</li><li>
+<p>O professor deve fornecer nome, email e senha.</p>
+</li><li>
+<p>O sistema deve validar a unicidade do email.</p>
+</li><li>
+<p>O professor deve receber um email de confirmação após o cadastro.</p>
+</li></ul>
+
+<h4 id="label-2.+Autentica-C3-A7-C3-A3o+e+Autoriza-C3-A7-C3-A3o">2. Autenticação e Autorização<span><a href="#label-2.+Autentica-C3-A7-C3-A3o+e+Autoriza-C3-A7-C3-A3o">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<h5 id="label-HU03-3A+Login+de+Usu-C3-A1rios">HU03: Login de Usuários<span><a href="#label-HU03-3A+Login+de+Usu-C3-A1rios">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><strong>Como</strong> um usuário (aluno ou professor), <strong>eu quero</strong> fazer login no sistema, <strong>para que</strong> eu possa acessar minhas funcionalidades.</p>
+<ul><li>
+<p><strong>Critérios de Aceitação</strong>:</p>
+</li><li>
+<p>O usuário deve fornecer email e senha.</p>
+</li><li>
+<p>O sistema deve autenticar o usuário e redirecioná-lo para a página inicial correspondente ao seu papel (aluno ou professor).</p>
+</li></ul>
+
+<h5 id="label-HU04-3A+Logout+de+Usu-C3-A1rios">HU04: Logout de Usuários<span><a href="#label-HU04-3A+Logout+de+Usu-C3-A1rios">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><strong>Como</strong> um usuário (aluno ou professor), <strong>eu quero</strong> fazer logout do sistema, <strong>para que</strong> eu possa encerrar minha sessão com segurança.</p>
+<ul><li>
+<p><strong>Critérios de Aceitação</strong>:</p>
+</li><li>
+<p>O usuário deve ser capaz de sair do sistema a partir de qualquer página.</p>
+</li><li>
+<p>O sistema deve encerrar a sessão do usuário e redirecioná-lo para a página de login.</p>
+</li></ul>
+
+<h4 id="label-3.+Gerenciamento+de+Disciplinas+e+Turmas">3. Gerenciamento de Disciplinas e Turmas<span><a href="#label-3.+Gerenciamento+de+Disciplinas+e+Turmas">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<h5 id="label-HU05-3A+Cadastro+de+Disciplinas">HU05: Cadastro de Disciplinas<span><a href="#label-HU05-3A+Cadastro+de+Disciplinas">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><strong>Como</strong> um administrador, <strong>eu quero</strong> cadastrar disciplinas no sistema, <strong>para que</strong> os professores possam associá-las às turmas.</p>
+<ul><li>
+<p><strong>Critérios de Aceitação</strong>:</p>
+</li><li>
+<p>O administrador deve fornecer nome e código da disciplina.</p>
+</li><li>
+<p>O sistema deve validar a unicidade do código da disciplina.</p>
+</li></ul>
+
+<h5 id="label-HU06-3A+Cadastro+de+Turmas">HU06: Cadastro de Turmas<span><a href="#label-HU06-3A+Cadastro+de+Turmas">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><strong>Como</strong> um administrador, <strong>eu quero</strong> cadastrar turmas no sistema, <strong>para que</strong> os alunos possam ser associados a elas.</p>
+<ul><li>
+<p><strong>Critérios de Aceitação</strong>:</p>
+</li><li>
+<p>O administrador deve fornecer nome, ano, semestre e disciplina associada à turma.</p>
+</li><li>
+<p>O sistema deve validar a combinação única de nome, ano e semestre para cada turma.</p>
+</li></ul>
+
+<h4 id="label-4.+Gerenciamento+de+Avalia-C3-A7-C3-B5es">4. Gerenciamento de Avaliações<span><a href="#label-4.+Gerenciamento+de+Avalia-C3-A7-C3-B5es">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<h5 id="label-HU07-3A+Cria-C3-A7-C3-A3o+de+Avalia-C3-A7-C3-B5es">HU07: Criação de Avaliações<span><a href="#label-HU07-3A+Cria-C3-A7-C3-A3o+de+Avalia-C3-A7-C3-B5es">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><strong>Como</strong> um professor, <strong>eu quero</strong> criar avaliações para minhas turmas, <strong>para que</strong> eu possa avaliar o desempenho dos alunos.</p>
+<ul><li>
+<p><strong>Critérios de Aceitação</strong>:</p>
+</li><li>
+<p>O professor deve fornecer título, descrição, data de criação e data de entrega da avaliação.</p>
+</li><li>
+<p>O professor deve associar a avaliação a uma turma específica.</p>
+</li></ul>
+
+<h5 id="label-HU08-3A+Responder+Avalia-C3-A7-C3-B5es">HU08: Responder Avaliações<span><a href="#label-HU08-3A+Responder+Avalia-C3-A7-C3-B5es">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><strong>Como</strong> um aluno, <strong>eu quero</strong> responder às avaliações das minhas turmas, <strong>para que</strong> eu possa demonstrar meu conhecimento.</p>
+<ul><li>
+<p><strong>Critérios de Aceitação</strong>:</p>
+</li><li>
+<p>O aluno deve visualizar as avaliações pendentes na sua página inicial.</p>
+</li><li>
+<p>O aluno deve fornecer respostas para cada pergunta da avaliação.</p>
+</li><li>
+<p>O sistema deve registrar a data e hora de submissão da resposta.</p>
+</li></ul>
+
+<h4 id="label-5.+Relat-C3-B3rios+e+Feedback">5. Relatórios e Feedback<span><a href="#label-5.+Relat-C3-B3rios+e+Feedback">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<h5 id="label-HU09-3A+Visualiza-C3-A7-C3-A3o+de+Resultados">HU09: Visualização de Resultados<span><a href="#label-HU09-3A+Visualiza-C3-A7-C3-A3o+de+Resultados">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><strong>Como</strong> um aluno, <strong>eu quero</strong> visualizar os resultados das minhas avaliações, <strong>para que</strong> eu possa acompanhar meu desempenho.</p>
+<ul><li>
+<p><strong>Critérios de Aceitação</strong>:</p>
+</li><li>
+<p>O aluno deve acessar uma página de resultados com a lista de avaliações respondidas.</p>
+</li><li>
+<p>O aluno deve visualizar a nota e o feedback do professor para cada avaliação.</p>
+</li></ul>
+
+<h5 id="label-HU10-3A+Gera-C3-A7-C3-A3o+de+Relat-C3-B3rios">HU10: Geração de Relatórios<span><a href="#label-HU10-3A+Gera-C3-A7-C3-A3o+de+Relat-C3-B3rios">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><strong>Como</strong> um professor, <strong>eu quero</strong> gerar relatórios de desempenho dos alunos, <strong>para que</strong> eu possa avaliar o progresso da turma.</p>
+<ul><li>
+<p><strong>Critérios de Aceitação</strong>:</p>
+</li><li>
+<p>O professor deve selecionar a turma e o período para o relatório.</p>
+</li><li>
+<p>O sistema deve gerar um relatório com as notas e o desempenho de cada aluno.</p>
+</li></ul>
+
+<h4 id="label-6.+Notifica-C3-A7-C3-B5es">6. Notificações<span><a href="#label-6.+Notifica-C3-A7-C3-B5es">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<h5 id="label-HU11-3A+Notifica-C3-A7-C3-B5es+de+Novas+Avalia-C3-A7-C3-B5es">HU11: Notificações de Novas Avaliações<span><a href="#label-HU11-3A+Notifica-C3-A7-C3-B5es+de+Novas+Avalia-C3-A7-C3-B5es">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><strong>Como</strong> um aluno, <strong>eu quero</strong> receber notificações por email quando uma nova avaliação for criada, <strong>para que</strong> eu possa me preparar para respondê-la.</p>
+<ul><li>
+<p><strong>Critérios de Aceitação</strong>:</p>
+</li><li>
+<p>O sistema deve enviar um email para o aluno quando uma nova avaliação for criada na sua turma.</p>
+</li></ul>
+
+<h5 id="label-HU12-3A+Notifica-C3-A7-C3-B5es+de+Resultados+de+Avalia-C3-A7-C3-B5es">HU12: Notificações de Resultados de Avaliações<span><a href="#label-HU12-3A+Notifica-C3-A7-C3-B5es+de+Resultados+de+Avalia-C3-A7-C3-B5es">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><strong>Como</strong> um aluno, <strong>eu quero</strong> receber notificações por email quando os resultados das minhas avaliações forem publicados, <strong>para que</strong> eu possa verificar meu desempenho.</p>
+<ul><li>
+<p><strong>Critérios de Aceitação</strong>:</p>
+</li><li>
+<p>O sistema deve enviar um email para o aluno quando os resultados de uma avaliação forem publicados pelo professor.</p>
+</li></ul>
+
+<h4 id="label-7.+Templates+de+Avalia-C3-A7-C3-B5es">7. Templates de Avaliações<span><a href="#label-7.+Templates+de+Avalia-C3-A7-C3-B5es">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<h5 id="label-HU13-3A+Cria-C3-A7-C3-A3o+de+Templates">HU13: Criação de Templates<span><a href="#label-HU13-3A+Cria-C3-A7-C3-A3o+de+Templates">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><strong>Como</strong> um professor, <strong>eu quero</strong> criar templates de avaliações, <strong>para que</strong> eu possa reutilizá-los em diferentes turmas e períodos.</p>
+<ul><li>
+<p><strong>Critérios de Aceitação</strong>:</p>
+</li><li>
+<p>O professor deve fornecer título e descrição para o template.</p>
+</li><li>
+<p>O professor deve adicionar perguntas ao template.</p>
+</li><li>
+<p>O template deve estar disponível para uso em futuras avaliações.</p>
+</li></ul>
+
+<h5 id="label-HU14-3A+Utiliza-C3-A7-C3-A3o+de+Templates">HU14: Utilização de Templates<span><a href="#label-HU14-3A+Utiliza-C3-A7-C3-A3o+de+Templates">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><strong>Como</strong> um professor, <strong>eu quero</strong> utilizar templates para criar novas avaliações, <strong>para que</strong> eu possa economizar tempo na criação de avaliações similares.</p>
+<ul><li>
+<p><strong>Critérios de Aceitação</strong>:</p>
+</li><li>
+<p>O professor deve selecionar um template existente ao criar uma nova avaliação.</p>
+</li><li>
+<p>O sistema deve preencher automaticamente as perguntas da avaliação com base no template selecionado.</p>
+</li></ul>
+
+</main>
+

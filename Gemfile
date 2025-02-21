@@ -62,3 +62,6 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "rubycritic", require: false
+gem "rdoc", require: false
