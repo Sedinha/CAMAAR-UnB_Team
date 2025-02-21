@@ -20,8 +20,17 @@ class DisciplinasController < ApplicationController
     @disciplina = Disciplina.find(params[:id])
     @professores = @disciplina.professores
     respond_to do |format|
-      format.json { render json: @professores.map { |p| { id: p.id, nome: p.nome } } }
+      format.json {
+        render json: @professores.map { |p|
+          {
+            id: p.id,
+            nome: p.nome
+          }
+        }
+      }
     end
+  rescue ActiveRecord::RecordNotFound
+    render json: [], status: :not_found
   end
 
   def new

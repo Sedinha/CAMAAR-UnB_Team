@@ -1,4 +1,6 @@
-<div class="form-container">
+<div class="form-container"
+      data-controller="turma"
+      data-turma-debug-value="true">
   <h1>Nova Turma</h1>
 
   <%= form_with(model: @turma, local: true, class: "turma-form") do |f| %>
@@ -15,7 +17,8 @@
                             :nome, 
                             { prompt: "Selecione uma disciplina" }, 
                             { required: true,
-                              id: 'disciplina-select' } %>
+                              'data-turma-target': "disciplina",
+                              'data-action': "change->turma#updateProfessores" } %>
     </div>
 
     <div class="form-group">
@@ -27,7 +30,7 @@
                             { prompt: "Primeiro selecione uma disciplina" }, 
                             { required: true,
                               disabled: true,
-                              id: 'professor_select' } %>
+                              'data-turma-target': "professor" } %>
     </div>
 
     <div class="form-group">
@@ -49,3 +52,19 @@
     </div>
   <% end %>
 </div>
+
+<%# Debug info %>
+<%= content_for :debug_info do %>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('=== Debug Info ===');
+      console.log('Elementos com data-controller="turma":', 
+                  document.querySelectorAll('[data-controller="turma"]').length);
+      console.log('Elemento disciplina:', 
+                  document.querySelector('[data-turma-target="disciplina"]'));
+      console.log('Elemento professor:', 
+                  document.querySelector('[data-turma-target="professor"]'));
+      console.log('================');
+    });
+  </script>
+<% end %>

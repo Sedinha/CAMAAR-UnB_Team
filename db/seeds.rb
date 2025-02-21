@@ -5,6 +5,9 @@ Professor.delete_all
 User.delete_all
 Disciplina.delete_all
 Departamento.delete_all
+Turma.delete_all
+Matricula.delete_all
+Aluno.delete_all
 
 # Lista de departamentos da UnB que queremos adicionar inicialmente
 departamentos = [
@@ -20,16 +23,45 @@ departamentos = [
   "Departamento de Geografia"
 ]
 
-# Criando departamentos
-departamentos_criados = {}
-departamentos.each do |nome_departamento|
-  dep = Departamento.create!(nome: nome_departamento)
-  departamentos_criados[nome_departamento] = dep
-  puts "Criando departamento: #{nome_departamento}"
-end
-
-puts "\nDepartamentos criados com sucesso!"
-puts "Total de departamentos: #{Departamento.count}"
+# Lista de turmas que queremos adicionar inicialmente
+turmas_data = [
+  {
+    codigo: "TURMA001",
+    semestre: "2023.1",
+    disciplina_nome: "Algoritmos e Programação de Computadores",
+    professor_email: "joao.silva@prof.br"
+  },
+  {
+    codigo: "TURMA002",
+    semestre: "2023.1",
+    disciplina_nome: "Estruturas de Dados",
+    professor_email: "joao.silva@prof.br"
+  },
+  {
+    codigo: "TURMA003",
+    semestre: "2023.1",
+    disciplina_nome: "Cálculo 1",
+    professor_email: "maria.santos@prof.br"
+  },
+  {
+    codigo: "TURMA004",
+    semestre: "2023.1",
+    disciplina_nome: "Álgebra Linear",
+    professor_email: "maria.santos@prof.br"
+  },
+  {
+    codigo: "TURMA005",
+    semestre: "2023.1",
+    disciplina_nome: "Engenharia de Software",
+    professor_email: "pedro.oliveira@prof.br"
+  },
+  {
+    codigo: "TURMA006",
+    semestre: "2023.1",
+    disciplina_nome: "Programação Concorrente",
+    professor_email: "pedro.oliveira@prof.br"
+  }
+]
 
 # Lista de professores com suas disciplinas
 professores_data = [
@@ -70,6 +102,17 @@ professores_data = [
     disciplinas: [ "Engenharia de Software", "Programação Concorrente" ]
   }
 ]
+# Criando departamentos
+departamentos_criados = {}
+departamentos.each do |nome_departamento|
+  dep = Departamento.create!(nome: nome_departamento)
+  departamentos_criados[nome_departamento] = dep
+  puts "Criando departamento: #{nome_departamento}"
+end
+
+puts "\nDepartamentos criados com sucesso!"
+puts "Total de departamentos: #{Departamento.count}"
+
 
 # Criando professores e suas disciplinas
 professores_data.each do |prof_data|
@@ -95,17 +138,20 @@ professores_data.each do |prof_data|
     departamento: prof_data[:departamento],
     formacao: prof_data[:formacao],
     ocupacao: prof_data[:ocupacao]
-  )
+    )
 
+    puts "Criado professor: #{prof_data[:nome]}"
 
   # Criar disciplinas e associações
+  disciplinas = []
+
   prof_data[:disciplinas].each do |disc_nome|
     disciplina = Disciplina.find_or_create_by!(
       nome: disc_nome,
       codigo: "#{prof_data[:departamento][0..2]}#{rand(1000..9999)}",
       departamento: departamentos_criados[prof_data[:departamento]]
     )
-
+    disciplinas << disciplina
     # Criar associação professor_disciplina
     ProfessorDisciplina.create!(
       professor: professor,
@@ -114,9 +160,29 @@ professores_data.each do |prof_data|
 
     puts "Criada disciplina #{disc_nome} para professor #{prof_data[:nome]}"
   end
-
-  puts "Criado professor: #{prof_data[:nome]}"
 end
+
+# Criando turmas
+turmas_data.each do |turma_data|
+  # Encontrar a disciplina pelo nome
+  disciplina = Disciplina.find_by(nome: turma_data[:disciplina_nome])
+
+  # Encontrar o professor pelo email
+  professor = Professor.find_by(email: turma_data[:professor_email])
+
+  if disciplina && professor
+    Turma.create!(
+      codigo: turma_data[:codigo],
+      semestre: turma_data[:semestre],
+      disciplina: disciplina,
+      professor: professor
+    )
+    puts "Criada turma: #{turma_data[:codigo]} - #{turma_data[:disciplina_nome]} com professor #{professor.nome}"
+  else
+    puts "Erro ao criar turma: Disciplina ou professor não encontrado para #{turma_data[:codigo]}"
+  end
+end
+
 
 # Criar um super admin
 admin = User.new(
@@ -134,3 +200,6 @@ puts "Total de departamentos: #{Departamento.count}"
 puts "Total de professores: #{Professor.count}"
 puts "Total de disciplinas: #{Disciplina.count}"
 puts "Total de associações professor-disciplina: #{ProfessorDisciplina.count}"
+puts "Turmas: #{Turma.count}"
+puts "Alunos: #{Aluno.count}"
+puts "Matrículas: #{Matricula.count}"
