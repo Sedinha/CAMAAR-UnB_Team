@@ -5,10 +5,8 @@ Feature: Sistema de Login
 
   Scenario: Login bem-sucedido como administrador
     Given que eu estou na página de login
-    When eu preencho o campo "email" com "admin@example.com"
-    And eu preencho o campo "senha" com "senha123"
-    And eu clico em "Entrar"
-    Then eu devo ver o menu lateral com a opção "Gerenciamento"
+    When eu preencho o formulário de login
+    Then eu devo estar na pagina de management
 
   Scenario Outline: Login com sucesso
         Given que o usuário está na página de login
