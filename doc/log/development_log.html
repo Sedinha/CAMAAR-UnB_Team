@@ -23104,5 +23104,25 @@ Rendered layout layouts/application.html.erb (Duration: 129.4ms | GC: 0.0ms)</pr
 [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM &quot;ar_internal_metadata&quot; WHERE &quot;ar_internal_metadata&quot;.&quot;key&quot; = $1 ORDER BY &quot;ar_internal_metadata&quot;.&quot;key&quot; ASC LIMIT 1[0m  [[nil, &quot;schema_sha1&quot;]]
 [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO &quot;ar_internal_metadata&quot; (&quot;key&quot;, &quot;value&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES (&#39;schema_sha1&#39;, &#39;c8c0cd89046edbecea95211c7ef7d2e40d436654&#39;, &#39;2025-02-22 01:57:41.305621&#39;, &#39;2025-02-22 01:57:41.305622&#39;) RETURNING &quot;key&quot;[0m</pre>
 
+<p>Started GET “/” for 127.0.0.1 at 2025-02-21 23:21:44 -0300</p>
+
+<pre>[1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1m[34mSELECT &quot;schema_migrations&quot;.&quot;version&quot; FROM &quot;schema_migrations&quot; ORDER BY &quot;schema_migrations&quot;.&quot;version&quot; ASC[0m</pre>
+
+<p>Processing by HomeController#index as HTML</p>
+
+<pre>Rendering layout layouts/application.html.erb
+Rendering home/index.html.erb within layouts/application
+Rendered home/index.html.erb within layouts/application (Duration: 29.8ms | GC: 0.0ms)
+Rendered layout layouts/application.html.erb (Duration: 880.4ms | GC: 0.2ms)</pre>
+
+<p>Completed 200 OK in 921ms (Views: 886.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)</p>
+
+<p>Started GET “/manifest.json” for 127.0.0.1 at 2025-02-21 23:21:45 -0300 Processing by Rails::PwaController#manifest as JSON</p>
+
+<pre>Rendering pwa/manifest.json.erb
+Rendered pwa/manifest.json.erb (Duration: 1.1ms | GC: 0.0ms)</pre>
+
+<p>Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)</p>
+
 </main>
 
