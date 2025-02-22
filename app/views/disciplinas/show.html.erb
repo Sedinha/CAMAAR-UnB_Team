@@ -1,0 +1,57 @@
+<div class="disciplina-show-container">
+  <div class="header-actions">
+    <%= link_to disciplinas_path, class: "btn-back" do %>
+      <i class="fas fa-arrow-left"></i> Voltar
+    <% end %>
+  </div>
+
+  <div class="disciplina-details">
+    <h1>Detalhes da Disciplina</h1>
+
+    <div class="info-card">
+      <div class="info-item">
+        <strong>Código:</strong>
+        <span><%= @disciplina.codigo %></span>
+      </div>
+
+      <div class="info-item">
+        <strong>Nome:</strong>
+        <span><%= @disciplina.nome %></span>
+      </div>
+
+      <div class="info-item">
+        <strong>Departamento:</strong>
+        <span><%= @disciplina.departamento&.nome || "Não definido" %></span>
+      </div>
+
+      <div class="info-item">
+        <strong>Professores:</strong>
+        <% if @disciplina.professores.any? %>
+          <ul class="professors-list">
+            <% @disciplina.professores.each do |professor| %>
+              <li><%= professor.nome %></li>
+            <% end %>
+          </ul>
+        <% else %>
+          <span>Nenhum professor associado</span>
+        <% end %>
+      </div>
+
+      <div class="info-item">
+        <strong>Turmas:</strong>
+        <% if @disciplina.turmas.any? %>
+          <ul class="turmas-list">
+            <% @disciplina.turmas.each do |turma| %>
+              <li>
+                <%= "#{turma.codigo} - #{turma.semestre}" %>
+                <%= " (#{turma.horario})" if turma.horario.present? %>
+              </li>
+            <% end %>
+          </ul>
+        <% else %>
+          <span>Nenhuma turma registrada</span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

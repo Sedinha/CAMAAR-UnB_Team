@@ -10,9 +10,27 @@ class DisciplinasController < ApplicationController
   # 7. destroy - remove disciplina
   def index
     @disciplinas = Disciplina.all
+    # disciplinas_path aqui geraria "/disciplinas"
   end
 
   def show
+  end
+  # Puxa os professores na view de turmas
+  def professores
+    @disciplina = Disciplina.find(params[:id])
+    @professores = @disciplina.professores
+    respond_to do |format|
+      format.json {
+        render json: @professores.map { |p|
+          {
+            id: p.id,
+            nome: p.nome
+          }
+        }
+      }
+    end
+  rescue ActiveRecord::RecordNotFound
+    render json: [], status: :not_found
   end
 
   def new

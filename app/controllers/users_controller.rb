@@ -22,11 +22,9 @@ class UsersController < ApplicationController
       return
     end
 
-    if @user.email.end_with?("@prof.br")
-      @user.role = "admin"
-    else
-      @user.role = "user"
-    end
+    # Definir o role do usuário
+    @user.role = @user.email.end_with?("@prof.br") ? "admin" : "user"
+
     if @user.save
       session[:user_id] = @user.id
       session[:user_type] = @user.role
