@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Projeto_CAMAAR - RDoc Documentation</title>
+
+  <meta name="keywords" content="ruby,documentation,Projeto_CAMAAR">
+  <meta name="description" content="Projeto_CAMAAR: Projeto CAMAAR ## Introdução O sistema CAMAAR (Sistema para Avaliação de Atividades Acadêmicas Remotas do CIC - Ciência da Computação) foi desenvolvi">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="file">
+<div id="navigation-toggle" role="button" tabindex="0" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="navigation">
+  <span aria-hidden="true">&#9776;</span>
+</div>
+
+
+<nav id="navigation" role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search (/) for a class, method, ..." spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+
+
+  <ul class="link-list" role="directory">
+              <li>
+            <details open>
+              <summary>      <a href="#label-Projeto+CAMAAR">Projeto CAMAAR</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-Introdu-C3-A7-C3-A3o">Introdução</a>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Planejamento">Planejamento</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-1.+Escopo+do+Software">1. Escopo do Software</a>
+          <li>      <a href="#label-2.+Descri-C3-A7-C3-A3o+do+Problema">2. Descrição do Problema</a>
+          <li>      <a href="#label-3.+Proposta+de+Desenvolvimento">3. Proposta de Desenvolvimento</a>
+          <li>
+            <details open>
+              <summary>      <a href="#label-4.+An-C3-A1lise+de+Requisitos">4. Análise de Requisitos</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-4.1+Requisitos+Funcionais">4.1 Requisitos Funcionais</a>
+          <li>      <a href="#label-4.2+Requisitos+de+Qualidade+-28N-C3-A3o+Funcionais-29">4.2 Requisitos de Qualidade (Não Funcionais)</a>
+          <li>      <a href="#label-4.3+Requisitos+de+Restri-C3-A7-C3-A3o">4.3 Requisitos de Restrição</a>
+
+              </ul>
+            </details>
+          </li>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-Backlog+do+Projeto+CAMAAR">Backlog do Projeto CAMAAR</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>
+            <details open>
+              <summary>      <a href="#label-Hist-C3-B3rias+de+Usu-C3-A1rio">Histórias de Usuário</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>
+            <details open>
+              <summary>      <a href="#label-1.+Cadastro+de+Usu-C3-A1rios">1. Cadastro de Usuários</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-HU01-3A+Cadastro+de+Alunos">HU01: Cadastro de Alunos</a>
+          <li>      <a href="#label-HU02-3A+Cadastro+de+Professores">HU02: Cadastro de Professores</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-2.+Autentica-C3-A7-C3-A3o+e+Autoriza-C3-A7-C3-A3o">2. Autenticação e Autorização</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-HU03-3A+Login+de+Usu-C3-A1rios">HU03: Login de Usuários</a>
+          <li>      <a href="#label-HU04-3A+Logout+de+Usu-C3-A1rios">HU04: Logout de Usuários</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-3.+Gerenciamento+de+Disciplinas+e+Turmas">3. Gerenciamento de Disciplinas e Turmas</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-HU05-3A+Cadastro+de+Disciplinas">HU05: Cadastro de Disciplinas</a>
+          <li>      <a href="#label-HU06-3A+Cadastro+de+Turmas">HU06: Cadastro de Turmas</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-4.+Gerenciamento+de+Avalia-C3-A7-C3-B5es">4. Gerenciamento de Avaliações</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-HU07-3A+Cria-C3-A7-C3-A3o+de+Avalia-C3-A7-C3-B5es">HU07: Criação de Avaliações</a>
+          <li>      <a href="#label-HU08-3A+Responder+Avalia-C3-A7-C3-B5es">HU08: Responder Avaliações</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-5.+Relat-C3-B3rios+e+Feedback">5. Relatórios e Feedback</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-HU09-3A+Visualiza-C3-A7-C3-A3o+de+Resultados">HU09: Visualização de Resultados</a>
+          <li>      <a href="#label-HU10-3A+Gera-C3-A7-C3-A3o+de+Relat-C3-B3rios">HU10: Geração de Relatórios</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-6.+Notifica-C3-A7-C3-B5es">6. Notificações</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-HU11-3A+Notifica-C3-A7-C3-B5es+de+Novas+Avalia-C3-A7-C3-B5es">HU11: Notificações de Novas Avaliações</a>
+          <li>      <a href="#label-HU12-3A+Notifica-C3-A7-C3-B5es+de+Resultados+de+Avalia-C3-A7-C3-B5es">HU12: Notificações de Resultados de Avaliações</a>
+
+              </ul>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary>      <a href="#label-7.+Templates+de+Avalia-C3-A7-C3-B5es">7. Templates de Avaliações</a>
+</summary>
+              <ul class="link-list" role="directory">
+                          <li>      <a href="#label-HU13-3A+Cria-C3-A7-C3-A3o+de+Templates">HU13: Criação de Templates</a>
+          <li>      <a href="#label-HU14-3A+Utiliza-C3-A7-C3-A3o+de+Templates">HU14: Utilização de Templates</a>
+
+              </ul>
+            </details>
+          </li>
+
+              </ul>
+            </details>
+          </li>
+
+              </ul>
+            </details>
+          </li>
+
+              </ul>
+            </details>
+          </li>
+
+  </ul>
+</div>
+
+  
+<div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+    <li><a href="./DBConnection_session_sql.html">DBConnection.session.sql</a>
+    <li><a href="./Dockerfile.html">Dockerfile</a>
+    <li><a href="./Gemfile.html">Gemfile</a>
+    <li><a href="./Gemfile_lock.html">Gemfile.lock</a>
+    <li><a href="./Projeto_CAMAAR_md.html">Projeto_CAMAAR</a>
+    <li><a href="./README_md.html">README</a>
+    <li><a href="./Rakefile.html">Rakefile</a>
+    <li><details><summary>app</summary>
+    <ul class="link-list">
+      <li><a href="./app/assets/config/manifest_js.html">manifest.js</a>
+      <li><a href="./app/assets/stylesheets/admin_css.html">admin.css</a>
+      <li><a href="./app/assets/stylesheets/application_css.html">application.css</a>
+      <li><a href="./app/assets/stylesheets/disciplinas_css.html">disciplinas.css</a>
+      <li><a href="./app/assets/stylesheets/home_css.html">home.css</a>
+      <li><a href="./app/assets/stylesheets/templates/template_Show_css.html">template_Show.css</a>
+      <li><a href="./app/assets/stylesheets/templates/templates_card_css.html">templates_card.css</a>
+      <li><a href="./app/assets/stylesheets/topbar_css.html">topbar.css</a>
+      <li><a href="./app/assets/stylesheets/turma_form_css.html">turma_form.css</a>
+      <li><a href="./app/assets/stylesheets/turmas_css.html">turmas.css</a>
+      <li><a href="./app/javascript/application_js.html">application.js</a>
+      <li><a href="./app/javascript/controllers/application_js.html">application.js</a>
+      <li><a href="./app/javascript/controllers/hello_controller_js.html">hello_controller.js</a>
+      <li><a href="./app/javascript/controllers/index_js.html">index.js</a>
+      <li><a href="./app/javascript/controllers/turma_controller_js.html">turma_controller.js</a>
+      <li><a href="./app/javascript/custom/templates_js.html">templates.js</a>
+      <li><a href="./app/javascript/custom/topbar_js.html">topbar.js</a>
+      <li><a href="./app/javascript/custom/turma_form_js.html">turma_form.js</a>
+      <li><a href="./app/views/pwa/service-worker_js.html">service-worker.js</a>
+    </ul></details>
+    <li><a href="./bin/docker-entrypoint.html">docker-entrypoint</a>
+    <li><a href="./class_members_json.html">class_members.json</a>
+    <li><a href="./classes_json.html">classes.json</a>
+    <li><a href="./config_ru.html">config.ru</a>
+    <li><a href="./config/credentials_yml_enc.html">credentials.yml.enc</a>
+    <li><details><summary>coverage</summary>
+    <ul class="link-list">
+      <li><a href="./coverage/assets/0_13_1/application_css.html">application.css</a>
+      <li><a href="./coverage/assets/0_13_1/application_js.html">application.js</a>
+      <li><a href="./coverage/index_html.html">index.html</a>
+    </ul></details>
+    <li><details><summary>features</summary>
+    <ul class="link-list">
+      <li><a href="./features/scenarios/answer_form_feature.html">answer.form.feature</a>
+      <li><a href="./features/scenarios/cadastro_user_feature.html">cadastro_user.feature</a>
+      <li><a href="./features/scenarios/form_management_feature.html">form_management.feature</a>
+      <li><a href="./features/scenarios/gerar_relatorio_feature.html">gerar_relatorio.feature</a>
+      <li><a href="./features/scenarios/import_data_feature.html">import_data.feature</a>
+      <li><a href="./features/scenarios/login_feature.html">login.feature</a>
+      <li><a href="./features/scenarios/template_creation_feature.html">template_creation.feature</a>
+      <li><a href="./features/scenarios/template_management_feature.html">template_management.feature</a>
+      <li><a href="./features/scenarios/template_visualization_feature.html">template_visualization.feature</a>
+    </ul></details>
+    <li><a href="./lib/tasks/cucumber_rake.html">cucumber.rake</a>
+    <li><details><summary>log</summary>
+    <ul class="link-list">
+      <li><a href="./log/development_log.html">development.log</a>
+      <li><a href="./log/test_log.html">test.log</a>
+    </ul></details>
+    <li><details><summary>public</summary>
+    <ul class="link-list">
+      <li><a href="./public/404_html.html">404.html</a>
+      <li><a href="./public/406-unsupported-browser_html.html">406-unsupported-browser.html</a>
+      <li><a href="./public/422_html.html">422.html</a>
+      <li><a href="./public/500_html.html">500.html</a>
+      <li><a href="./public/robots_txt.html">robots</a>
+    </ul></details>
+    <li><details><summary>tmp</summary>
+    <ul class="link-list">
+      <li><a href="./tmp/local_secret_txt.html">local_secret</a>
+      <li><a href="./tmp/restart_txt.html">restart</a>
+    </ul></details>
+    <li><a href="./yarn_lock.html">yarn.lock</a>
+  </ul>
+</div>
+
+
+  <footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.11.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
+</nav>
+
+<main role="main" aria-label="Page Projeto_CAMAAR.md">
+
+<h1 id="label-Projeto+CAMAAR">Projeto CAMAAR<span><a href="#label-Projeto+CAMAAR">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h2 id="label-Introdu-C3-A7-C3-A3o">Introdução<span><a href="#label-Introdu-C3-A7-C3-A3o">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>O sistema CAMAAR (Sistema para Avaliação de Atividades Acadêmicas Remotas do CIC - Ciência da Computação) foi desenvolvido com o objetivo de facilitar a avaliação de atividades acadêmicas realizadas remotamente pelos alunos do curso de Ciência da Computação. Desenvolvido em Ruby on Rails, o sistema permite que administradores gerenciem turmas, matérias e formulários de avaliação, enquanto os alunos podem responder às avaliações de suas respectivas turmas e matérias.</p>
+
+<h2 id="label-Planejamento">Planejamento<span><a href="#label-Planejamento">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-1.+Escopo+do+Software">1. Escopo do Software<span><a href="#label-1.+Escopo+do+Software">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>O sistema proposto visa desenvolver uma plataforma de avaliação acadêmica para instituições de ensino, focada em facilitar o processo de avaliação de atividades acadêmicas tanto para alunos quanto para professores. O sistema permitirá o gerenciamento de avaliações, criação de templates de avaliação, autenticação de usuários, e a atribuição de disciplinas e turmas.</p>
+
+<h3 id="label-2.+Descri-C3-A7-C3-A3o+do+Problema">2. Descrição do Problema<span><a href="#label-2.+Descri-C3-A7-C3-A3o+do+Problema">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Atualmente, o processo de avaliação acadêmica em muitas instituições é manual e demorado, o que pode levar a erros e ineficiências. Professores e alunos enfrentam dificuldades na gestão de avaliações, feedback e acompanhamento de desempenho. Há necessidade de um sistema centralizado que permita uma melhor gestão e automação desses processos.</p>
+
+<h3 id="label-3.+Proposta+de+Desenvolvimento">3. Proposta de Desenvolvimento<span><a href="#label-3.+Proposta+de+Desenvolvimento">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><strong>Linguagem de programação</strong>: Ruby on Rails</p>
+</li><li>
+<p><strong>Banco de dados</strong>: PostgreSQL</p>
+</li><li>
+<p><strong>Recursos necessários</strong>:</p>
+</li><li>
+<p>Servidor de aplicação (Heroku, AWS, etc.)</p>
+</li><li>
+<p>Sistema de controle de versão (GitHub)</p>
+</li><li>
+<p>Ferramentas de CI/CD (GitHub Actions)</p>
+</li><li>
+<p>Frameworks de front-end (HTML, CSS, JavaScript)</p>
+</li></ul>
+
+<h3 id="label-4.+An-C3-A1lise+de+Requisitos">4. Análise de Requisitos<span><a href="#label-4.+An-C3-A1lise+de+Requisitos">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<h4 id="label-4.1+Requisitos+Funcionais">4.1 Requisitos Funcionais<span><a href="#label-4.1+Requisitos+Funcionais">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre>\item \textbf{RF1}: O sistema deve permitir que professores e alunos se cadastrem e informem dados pessoais.
+    \item \textbf{RF2}: O sistema deve permitir que professores criem e gerenciem avaliações.
+    \item \textbf{RF3}: O sistema deve permitir que alunos visualizem e respondam avaliações.
+    \item \textbf{RF4}: O sistema deve gerar relatórios de desempenho para alunos e turmas.
+    \item \textbf{RF5}: O sistema deve permitir a criação de templates de avaliação reutilizáveis.
+    \item \textbf{RF6}: O sistema deve fornecer autenticação e autorização para diferentes tipos de usuários (alunos, professores, administradores).
+    \item \textbf{RF7}: O sistema deve permitir a associação de alunos e professores a disciplinas e turmas específicas.
+    \item \textbf{RF8}: O sistema deve enviar notificações por e-mail para eventos importantes (novas avaliações, resultados de avaliações, etc.).</pre>
+
+<h4 id="label-4.2+Requisitos+de+Qualidade+-28N-C3-A3o+Funcionais-29">4.2 Requisitos de Qualidade (Não Funcionais)<span><a href="#label-4.2+Requisitos+de+Qualidade+-28N-C3-A3o+Funcionais-29">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre>\item \textbf{RQ1}: O sistema deve ser responsivo e acessível em diferentes dispositivos (desktop, tablet, smartphone).
+    \item \textbf{RQ2}: O sistema deve garantir a segurança dos dados dos usuários através de criptografia e controle de acesso.
+    \item \textbf{RQ3}: O sistema deve ser disponível e escalável para suportar um grande número de usuários simultâneos.
+    \item \textbf{RQ4}: O sistema deve ter um tempo de resposta aceitável (menos de 2 segundos para operações comuns).
+    \item \textbf{RQ5}: O sistema deve ser mantível e extensível para futuras melhorias e adições de funcionalidades.</pre>
+
+<h4 id="label-4.3+Requisitos+de+Restri-C3-A7-C3-A3o">4.3 Requisitos de Restrição<span><a href="#label-4.3+Requisitos+de+Restri-C3-A7-C3-A3o">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre>\item \textbf{RR1}: O sistema deve ser desenvolvido utilizando Ruby on Rails como framework principal.
+    \item \textbf{RR2}: O banco de dados deve ser PostgreSQL.
+    \item \textbf{RR3}: O sistema deve ser integrado com sistemas de autenticação externos (por exemplo, OAuth).
+    \item \textbf{RR4}: O desenvolvimento deve seguir práticas ágeis, com entregas incrementais e feedback contínuo.</pre>
+
+<h2 id="label-Backlog+do+Projeto+CAMAAR">Backlog do Projeto CAMAAR<span><a href="#label-Backlog+do+Projeto+CAMAAR">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Hist-C3-B3rias+de+Usu-C3-A1rio">Histórias de Usuário<span><a href="#label-Hist-C3-B3rias+de+Usu-C3-A1rio">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<h4 id="label-1.+Cadastro+de+Usu-C3-A1rios">1. Cadastro de Usuários<span><a href="#label-1.+Cadastro+de+Usu-C3-A1rios">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<h5 id="label-HU01-3A+Cadastro+de+Alunos">HU01: Cadastro de Alunos<span><a href="#label-HU01-3A+Cadastro+de+Alunos">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><strong>Como</strong> um aluno, <strong>eu quero</strong> me cadastrar no sistema, <strong>para que</strong> eu possa acessar as avaliações da minha turma.</p>
+<ul><li>
+<p><strong>Critérios de Aceitação</strong>:</p>
+</li><li>
+<p>O aluno deve fornecer nome, email, matrícula e senha.</p>
+</li><li>
+<p>O sistema deve validar a unicidade do email e da matrícula.</p>
+</li><li>
+<p>O aluno deve receber um email de confirmação após o cadastro.</p>
+</li></ul>
+
+<h5 id="label-HU02-3A+Cadastro+de+Professores">HU02: Cadastro de Professores<span><a href="#label-HU02-3A+Cadastro+de+Professores">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><strong>Como</strong> um professor, <strong>eu quero</strong> me cadastrar no sistema, <strong>para que</strong> eu possa criar e gerenciar avaliações.</p>
+<ul><li>
+<p><strong>Critérios de Aceitação</strong>:</p>
+</li><li>
+<p>O professor deve fornecer nome, email e senha.</p>
+</li><li>
+<p>O sistema deve validar a unicidade do email.</p>
+</li><li>
+<p>O professor deve receber um email de confirmação após o cadastro.</p>
+</li></ul>
+
+<h4 id="label-2.+Autentica-C3-A7-C3-A3o+e+Autoriza-C3-A7-C3-A3o">2. Autenticação e Autorização<span><a href="#label-2.+Autentica-C3-A7-C3-A3o+e+Autoriza-C3-A7-C3-A3o">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<h5 id="label-HU03-3A+Login+de+Usu-C3-A1rios">HU03: Login de Usuários<span><a href="#label-HU03-3A+Login+de+Usu-C3-A1rios">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><strong>Como</strong> um usuário (aluno ou professor), <strong>eu quero</strong> fazer login no sistema, <strong>para que</strong> eu possa acessar minhas funcionalidades.</p>
+<ul><li>
+<p><strong>Critérios de Aceitação</strong>:</p>
+</li><li>
+<p>O usuário deve fornecer email e senha.</p>
+</li><li>
+<p>O sistema deve autenticar o usuário e redirecioná-lo para a página inicial correspondente ao seu papel (aluno ou professor).</p>
+</li></ul>
+
+<h5 id="label-HU04-3A+Logout+de+Usu-C3-A1rios">HU04: Logout de Usuários<span><a href="#label-HU04-3A+Logout+de+Usu-C3-A1rios">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><strong>Como</strong> um usuário (aluno ou professor), <strong>eu quero</strong> fazer logout do sistema, <strong>para que</strong> eu possa encerrar minha sessão com segurança.</p>
+<ul><li>
+<p><strong>Critérios de Aceitação</strong>:</p>
+</li><li>
+<p>O usuário deve ser capaz de sair do sistema a partir de qualquer página.</p>
+</li><li>
+<p>O sistema deve encerrar a sessão do usuário e redirecioná-lo para a página de login.</p>
+</li></ul>
+
+<h4 id="label-3.+Gerenciamento+de+Disciplinas+e+Turmas">3. Gerenciamento de Disciplinas e Turmas<span><a href="#label-3.+Gerenciamento+de+Disciplinas+e+Turmas">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<h5 id="label-HU05-3A+Cadastro+de+Disciplinas">HU05: Cadastro de Disciplinas<span><a href="#label-HU05-3A+Cadastro+de+Disciplinas">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><strong>Como</strong> um administrador, <strong>eu quero</strong> cadastrar disciplinas no sistema, <strong>para que</strong> os professores possam associá-las às turmas.</p>
+<ul><li>
+<p><strong>Critérios de Aceitação</strong>:</p>
+</li><li>
+<p>O administrador deve fornecer nome e código da disciplina.</p>
+</li><li>
+<p>O sistema deve validar a unicidade do código da disciplina.</p>
+</li></ul>
+
+<h5 id="label-HU06-3A+Cadastro+de+Turmas">HU06: Cadastro de Turmas<span><a href="#label-HU06-3A+Cadastro+de+Turmas">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><strong>Como</strong> um administrador, <strong>eu quero</strong> cadastrar turmas no sistema, <strong>para que</strong> os alunos possam ser associados a elas.</p>
+<ul><li>
+<p><strong>Critérios de Aceitação</strong>:</p>
+</li><li>
+<p>O administrador deve fornecer nome, ano, semestre e disciplina associada à turma.</p>
+</li><li>
+<p>O sistema deve validar a combinação única de nome, ano e semestre para cada turma.</p>
+</li></ul>
+
+<h4 id="label-4.+Gerenciamento+de+Avalia-C3-A7-C3-B5es">4. Gerenciamento de Avaliações<span><a href="#label-4.+Gerenciamento+de+Avalia-C3-A7-C3-B5es">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<h5 id="label-HU07-3A+Cria-C3-A7-C3-A3o+de+Avalia-C3-A7-C3-B5es">HU07: Criação de Avaliações<span><a href="#label-HU07-3A+Cria-C3-A7-C3-A3o+de+Avalia-C3-A7-C3-B5es">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><strong>Como</strong> um professor, <strong>eu quero</strong> criar avaliações para minhas turmas, <strong>para que</strong> eu possa avaliar o desempenho dos alunos.</p>
+<ul><li>
+<p><strong>Critérios de Aceitação</strong>:</p>
+</li><li>
+<p>O professor deve fornecer título, descrição, data de criação e data de entrega da avaliação.</p>
+</li><li>
+<p>O professor deve associar a avaliação a uma turma específica.</p>
+</li></ul>
+
+<h5 id="label-HU08-3A+Responder+Avalia-C3-A7-C3-B5es">HU08: Responder Avaliações<span><a href="#label-HU08-3A+Responder+Avalia-C3-A7-C3-B5es">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><strong>Como</strong> um aluno, <strong>eu quero</strong> responder às avaliações das minhas turmas, <strong>para que</strong> eu possa demonstrar meu conhecimento.</p>
+<ul><li>
+<p><strong>Critérios de Aceitação</strong>:</p>
+</li><li>
+<p>O aluno deve visualizar as avaliações pendentes na sua página inicial.</p>
+</li><li>
+<p>O aluno deve fornecer respostas para cada pergunta da avaliação.</p>
+</li><li>
+<p>O sistema deve registrar a data e hora de submissão da resposta.</p>
+</li></ul>
+
+<h4 id="label-5.+Relat-C3-B3rios+e+Feedback">5. Relatórios e Feedback<span><a href="#label-5.+Relat-C3-B3rios+e+Feedback">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<h5 id="label-HU09-3A+Visualiza-C3-A7-C3-A3o+de+Resultados">HU09: Visualização de Resultados<span><a href="#label-HU09-3A+Visualiza-C3-A7-C3-A3o+de+Resultados">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><strong>Como</strong> um aluno, <strong>eu quero</strong> visualizar os resultados das minhas avaliações, <strong>para que</strong> eu possa acompanhar meu desempenho.</p>
+<ul><li>
+<p><strong>Critérios de Aceitação</strong>:</p>
+</li><li>
+<p>O aluno deve acessar uma página de resultados com a lista de avaliações respondidas.</p>
+</li><li>
+<p>O aluno deve visualizar a nota e o feedback do professor para cada avaliação.</p>
+</li></ul>
+
+<h5 id="label-HU10-3A+Gera-C3-A7-C3-A3o+de+Relat-C3-B3rios">HU10: Geração de Relatórios<span><a href="#label-HU10-3A+Gera-C3-A7-C3-A3o+de+Relat-C3-B3rios">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><strong>Como</strong> um professor, <strong>eu quero</strong> gerar relatórios de desempenho dos alunos, <strong>para que</strong> eu possa avaliar o progresso da turma.</p>
+<ul><li>
+<p><strong>Critérios de Aceitação</strong>:</p>
+</li><li>
+<p>O professor deve selecionar a turma e o período para o relatório.</p>
+</li><li>
+<p>O sistema deve gerar um relatório com as notas e o desempenho de cada aluno.</p>
+</li></ul>
+
+<h4 id="label-6.+Notifica-C3-A7-C3-B5es">6. Notificações<span><a href="#label-6.+Notifica-C3-A7-C3-B5es">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<h5 id="label-HU11-3A+Notifica-C3-A7-C3-B5es+de+Novas+Avalia-C3-A7-C3-B5es">HU11: Notificações de Novas Avaliações<span><a href="#label-HU11-3A+Notifica-C3-A7-C3-B5es+de+Novas+Avalia-C3-A7-C3-B5es">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><strong>Como</strong> um aluno, <strong>eu quero</strong> receber notificações por email quando uma nova avaliação for criada, <strong>para que</strong> eu possa me preparar para respondê-la.</p>
+<ul><li>
+<p><strong>Critérios de Aceitação</strong>:</p>
+</li><li>
+<p>O sistema deve enviar um email para o aluno quando uma nova avaliação for criada na sua turma.</p>
+</li></ul>
+
+<h5 id="label-HU12-3A+Notifica-C3-A7-C3-B5es+de+Resultados+de+Avalia-C3-A7-C3-B5es">HU12: Notificações de Resultados de Avaliações<span><a href="#label-HU12-3A+Notifica-C3-A7-C3-B5es+de+Resultados+de+Avalia-C3-A7-C3-B5es">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><strong>Como</strong> um aluno, <strong>eu quero</strong> receber notificações por email quando os resultados das minhas avaliações forem publicados, <strong>para que</strong> eu possa verificar meu desempenho.</p>
+<ul><li>
+<p><strong>Critérios de Aceitação</strong>:</p>
+</li><li>
+<p>O sistema deve enviar um email para o aluno quando os resultados de uma avaliação forem publicados pelo professor.</p>
+</li></ul>
+
+<h4 id="label-7.+Templates+de+Avalia-C3-A7-C3-B5es">7. Templates de Avaliações<span><a href="#label-7.+Templates+de+Avalia-C3-A7-C3-B5es">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<h5 id="label-HU13-3A+Cria-C3-A7-C3-A3o+de+Templates">HU13: Criação de Templates<span><a href="#label-HU13-3A+Cria-C3-A7-C3-A3o+de+Templates">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><strong>Como</strong> um professor, <strong>eu quero</strong> criar templates de avaliações, <strong>para que</strong> eu possa reutilizá-los em diferentes turmas e períodos.</p>
+<ul><li>
+<p><strong>Critérios de Aceitação</strong>:</p>
+</li><li>
+<p>O professor deve fornecer título e descrição para o template.</p>
+</li><li>
+<p>O professor deve adicionar perguntas ao template.</p>
+</li><li>
+<p>O template deve estar disponível para uso em futuras avaliações.</p>
+</li></ul>
+
+<h5 id="label-HU14-3A+Utiliza-C3-A7-C3-A3o+de+Templates">HU14: Utilização de Templates<span><a href="#label-HU14-3A+Utiliza-C3-A7-C3-A3o+de+Templates">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p><strong>Como</strong> um professor, <strong>eu quero</strong> utilizar templates para criar novas avaliações, <strong>para que</strong> eu possa economizar tempo na criação de avaliações similares.</p>
+<ul><li>
+<p><strong>Critérios de Aceitação</strong>:</p>
+</li><li>
+<p>O professor deve selecionar um template existente ao criar uma nova avaliação.</p>
+</li><li>
+<p>O sistema deve preencher automaticamente as perguntas da avaliação com base no template selecionado.</p>
+</li></ul>
+
+</main>
+
