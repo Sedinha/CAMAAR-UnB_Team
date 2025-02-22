@@ -102,6 +102,44 @@ professores_data = [
     disciplinas: [ "Engenharia de Software", "Programação Concorrente" ]
   }
 ]
+
+# Lista de alunos com formação e ocupação
+alunos_data = [
+  {
+    nome: "Ana Carolina Silva",
+    matricula: "190056789",
+    email: "ana.silva@aluno.unb.br",
+    curso: "Ciência da Computação",
+    username: "ana.silva",
+    password: "123456",
+    password_confirmation: "123456",
+    formacao: "Ensino Médio Completo",
+    ocupacao: "Estudante"
+  },
+  {
+    nome: "Lucas Oliveira",
+    matricula: "190067890",
+    email: "lucas.oliveira@aluno.unb.br",
+    curso: "Engenharia de Software",
+    username: "lucas.oliveira",
+    password: "123456",
+    password_confirmation: "123456",
+    formacao: "Técnico em Informática",
+    ocupacao: "Estagiário em Desenvolvimento"
+  },
+  {
+    nome: "Mariana Santos",
+    matricula: "190078901",
+    email: "mariana.santos@aluno.unb.br",
+    curso: "Matemática",
+    username: "mariana.santos",
+    password: "123456",
+    password_confirmation: "123456",
+    formacao: "Ensino Médio Completo",
+    ocupacao: "Monitora"
+  }
+]
+
 # Criando departamentos
 departamentos_criados = {}
 departamentos.each do |nome_departamento|
@@ -180,6 +218,48 @@ turmas_data.each do |turma_data|
     puts "Criada turma: #{turma_data[:codigo]} - #{turma_data[:disciplina_nome]} com professor #{professor.nome}"
   else
     puts "Erro ao criar turma: Disciplina ou professor não encontrado para #{turma_data[:codigo]}"
+  end
+end
+
+# Criando Alunoos
+puts "\nCriando alunos..."
+alunos_criados = []
+
+alunos_data.each do |aluno_data|
+  aluno = Aluno.create!(
+    nome: aluno_data[:nome],
+    matricula: aluno_data[:matricula],
+    email: aluno_data[:email],
+    curso: aluno_data[:curso],
+    formacao: aluno_data[:formacao],
+    ocupacao: aluno_data[:ocupacao]
+  )
+  # Criar usuário para o aluno
+  user = User.create!(
+    username: aluno_data[:username],
+    matricula: aluno_data[:matricula],
+    password: aluno_data[:password],
+    password_confirmation: aluno_data[:password_confirmation],
+    email: aluno_data[:email],
+    role: "user"
+  )
+
+  alunos_criados << aluno
+  puts "Criado aluno: #{aluno.nome} com usuário: #{user.username}"
+end
+
+# Matricular alunos em turmas
+puts "\nMatriculando alunos em turmas..."
+Turma.all.each do |turma|
+  # Matricular 2 alunos aleatórios em cada turma
+  alunos_para_matricula = alunos_criados.sample(2)
+
+  alunos_para_matricula.each do |aluno|
+    Matricula.create!(
+      aluno: aluno,
+      turma: turma
+    )
+    puts "Matriculado aluno #{aluno.nome} na turma #{turma.codigo}"
   end
 end
 
