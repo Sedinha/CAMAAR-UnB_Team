@@ -21,9 +21,10 @@ class QuestionariosController < ApplicationController
 
   def index
     if current_user.aluno
+      # Busc os questionarios das turmas em que o aluno está matriculado
+      turmas_ids = current_user.aluno.matriculas.map(&:turma_id)
       @questionarios = Questionario.joins(:turma)
-                                   .where(turmas: { id: current_user.aluno.matriculas.map(&:turma_id) })
-                                   .where.not(id: current_user.respondidos.map(&:questionario_id))
+                                   .where(turmas: { id: turmas_ids })
     else
       @questionarios = Questionario.none
       flash[:alert] = "Aluno não encontrado para o usuário atual."

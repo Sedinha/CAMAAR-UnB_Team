@@ -1,4 +1,5 @@
 class Resposta < ApplicationRecord
+  self.table_name = "respostas"
   belongs_to :questionario
   belongs_to :question
 
