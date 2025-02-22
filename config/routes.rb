@@ -60,4 +60,7 @@ Rails.application.routes.draw do
 
   # para dar logout
   delete "logout", to: "sessions#destroy"
+
+  # Rota para página de importação de arquivos
+  get "results/results_page", to: "results#results_page", as: :results_page
 end

@@ -1,0 +1,10 @@
+<h1>Exportar Resultados</h1>
+
+<%= form_with url: export_results_path, method: :get, local: true do |form| %>
+  <div>
+    <label for="turma_id">Selecione a Turma:</label>
+    <%= select_tag :turma_id, options_from_collection_for_select(Turma.all, :id, :codigo), prompt: "Escolha uma turma" %>
+  </div>
+
+  <%= submit_tag "Exportar CSV", class: "button" %>
+<% end %>

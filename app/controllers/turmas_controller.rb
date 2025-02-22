@@ -42,7 +42,7 @@ class TurmasController < ApplicationController
   def import_page
   end
 
-  # importa os dados de turmas
+  # importa os dados de turmas recebendo um arquivo no formato de classes.json e salva no banco de dados
   def import
     file = params[:file]
 
@@ -78,7 +78,7 @@ class TurmasController < ApplicationController
     redirect_to import_turmas_page_path, notice: "Dados importados com sucesso!"
   end
 
-  # importa os membros de turmas
+  # importa os membros de turmas recebendo um arquivo no formato de class_menbers.json e salva no banco de dados
   def import_members
     file = params[:file]
 

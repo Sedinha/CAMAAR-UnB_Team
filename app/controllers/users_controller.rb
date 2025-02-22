@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  # Função para criar um novo usuário
+  # Função para criar um novo usuário, se a o email contenha "@prof.br" o usuário é criado como admin e dependendo da criação do usuário é redirecionado para a página de administração ou para o questionário
   def create
     @user = User.new(user_params)
 

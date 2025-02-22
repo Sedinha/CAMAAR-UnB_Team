@@ -444,8 +444,8 @@ DEPENDENCIES
   pg (~> 1.5, >= 1.5.9)
   puma (>= 5.0)
   rails (~> 7.2.2)
+  rdoc
   rspec-rails
-  rubocop (~> 1.70)
   rubocop-rails-omakase
   rubycritic
   selenium-webdriver

@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   def new
   end
 
+  # Método para realizar o login do usuário utilizando a matrícula e senha
   def create
     user = User.find_by(matricula: params[:matricula])
 
@@ -14,6 +15,7 @@ class SessionsController < ApplicationController
     end
   end
   
+  # Método para realizar o logout do usuário
   def destroy
     session[:user_type] = nil
     session[:user_id] = nil

@@ -2,6 +2,11 @@ class ResultsController < ApplicationController
   before_action :authenticate_user!
   before_action :authorize_admin!
 
+
+  def results_page
+  end
+
+  # Exporta os resultados dos alunos em um arquivo CSV
   def export
     @results = Result.includes(:student).all
 
@@ -16,6 +21,7 @@ class ResultsController < ApplicationController
 
   private
 
+  # Função auxiliar para gerar o arquivo CSV usada no método export
   def generate_csv(results)
     CSV.generate(headers: true) do |csv|
       csv << ["Aluno", "Turma", "Nota"]
