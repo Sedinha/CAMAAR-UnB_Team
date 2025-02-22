@@ -1,0 +1,29 @@
+[data-controller="turma"] {
+    position: relative;
+  }
+  
+  [data-controller="turma"]::after {
+    content: "✓";
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: green;
+    font-size: 12px;
+  }
+  
+  [data-turma-target] {
+    border: 1px solid #ccc;
+  }
+  
+  [data-turma-target="disciplina"] {
+    border-color: blue;
+  }
+  
+  [data-turma-target="professor"] {
+    border-color: green;
+  }
+  
+  select:disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+  }

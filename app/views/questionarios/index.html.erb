@@ -1,0 +1,19 @@
+<!-- app/views/questionarios/index.html.erb -->
+<div class="container">
+  <h1>Questionários Pendentes</h1>
+
+  <% if @questionarios.any? %>
+    <div class="questionarios-list">
+      <% @questionarios.each do |questionario| %>
+        <div class="questionario-card">
+          <h3><%= questionario.nome %></h3>
+          <p>Turma: <%= questionario.turma.codigo %> - <%= questionario.turma.disciplina.nome %></p>
+          <p>Público Alvo: <%= questionario.publico_alvo %></p>
+          <%= link_to "Responder", new_questionario_resposta_path(questionario), class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p>Não há questionários pendentes no momento.</p>
+  <% end %>
+</div>

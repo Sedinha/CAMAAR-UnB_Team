@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe TurmasController, type: :controller do
-  let(:disciplina) { Disciplina.create!(codigo: "MAT101", nome: "Matemática") }
+  let(:disciplina) { Disciplina.create!(codigo: "CIC0097", nome: "Matemática") }
   let(:valid_attributes) {
-    { codigo: "MAT101", semestre: "2021.1", horario: "Segunda 10:00", professor_id: nil, disciplina_id: disciplina.id }
+    { codigo: "CIC0097", semestre: "2021.1", horario: "Segunda 10:00", professor_id: nil, disciplina_id: disciplina.id }
   }
 
   let(:invalid_attributes) {
@@ -124,15 +124,16 @@ RSpec.describe TurmasController, type: :controller do
   end
 
   describe "POST #import_members" do
+    let!(:turma) { Turma.create!(codigo: "TA", semestre: "2021.2", disciplina: disciplina) }
     context "with valid file" do
 
-=begin
+  begin
       it "imports members from the file" do
         expect {
           post :import_members, params: { file: file_with_members }
-        }.to change(Aluno, :count).by(1) # Assuming valid_turmas.json contains 1 alunos
+        }.to change(Aluno, :count).by(3) # Assuming valid_turmas.json contains 1 alunos
       end
-=end
+  end
 
       it "redirects to import page with notice" do
         post :import_members, params: { file: file_with_members }

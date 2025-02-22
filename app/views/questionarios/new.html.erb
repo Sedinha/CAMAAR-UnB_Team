@@ -1,17 +1,41 @@
-<h1>Criar Questionário</h1>
+<!-- app/views/questionarios/new.html.erb -->
+<div class="container">
+  <h1>Criar Novo Questionário</h1>
 
-<%= form_with model: @questionario, local: true do |form| %>
-  <div>
-    <%= form.label :nome %>
-    <%= form.text_field :nome %>
-  </div>
+  <%= form_with(model: @questionario, url: questionarios_path, local: true) do |form| %>
+    <% if @questionario.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@questionario.errors.count, "erro") %> impediram que este questionário fosse salvo:</h2>
+        <ul>
+          <% @questionario.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-  <div>
-    <%= form.label :turma_id, "Turma" %>
-    <%= form.collection_select :turma_id, @turmas, :id, :codigo %>
-  </div>
+    <div class="form-group">
+      <%= form.label :nome %>
+      <%= form.text_field :nome, class: "form-control", required: true %>
+    </div>
 
-  <div>
-    <%= form.submit "Criar Questionário" %>
-  </div>
-<% end %>
+    <div class="form-group">
+      <%= form.label :turma_id, "Turma" %>
+      <%= form.collection_select :turma_id, @turmas, :id, :codigo, { prompt: "Selecione uma turma" }, class: "form-control", required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :template_id, "Template" %>
+      <%= form.collection_select :template_id, @templates, :id, :nome, { prompt: "Selecione um template" }, class: "form-control", required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :publico_alvo, "Público Alvo" %>
+      <%= form.select :publico_alvo, @publicos_alvo, { prompt: "Selecione o público alvo" }, class: "form-control", required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= form.submit "Criar Questionário", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

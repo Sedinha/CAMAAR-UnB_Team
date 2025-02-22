@@ -20,7 +20,9 @@ Rails.application.routes.draw do
   # delete "/logout", to: "sessions#destroy"
 
   resources :templates
-  resources :questionarios, only: [ :new, :create, :index, :show ]
+  resources :questionarios, only: [ :new, :create, :index, :show ] do
+    resources :respostas, only: [ :new, :create ]
+  end
   get "questionarios/results/:id", to: "questionarios#results", as: :questionario_results
   resources :respostas, only: [ :create ]
 
@@ -53,7 +55,11 @@ Rails.application.routes.draw do
   resources :turmas
   resources :professores
   resources :alunos
-  resources :disciplinas
+  resources :disciplinas do
+    member do
+      get "professores"
+    end
+  end
   resources :matriculas
   resources :professor_disciplinas
 

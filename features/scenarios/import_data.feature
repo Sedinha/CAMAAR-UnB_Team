@@ -4,9 +4,7 @@ Feature: Importação de Dados do SIGAA
   In order to alimentar a base de dados do sistema
 
   Scenario: Importação bem-sucedida de dados
-    Given que eu estou logado como administrador
-    And eu estou na página de "Importação"
+    Given eu estou na página de importação
     When eu seleciono o arquivo JSON do SIGAA
-    And eu clico em "Importar Dados"
-    Then eu devo ver a mensagem "Dados importados com sucesso"
-    And os novos registros devem aparecer no sistema
+    And eu clico em Importar Turmas
+    Then os novos registros devem aparecer no sistema

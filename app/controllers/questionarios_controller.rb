@@ -1,24 +1,34 @@
 class QuestionariosController < ApplicationController
   before_action :authenticate_admin!, only: [ :new, :create ]
+  before_action :set_turma, only: [ :new, :create ]
+
 
   def new
     @questionario = Questionario.new
     @templates = Template.all
     @turmas = Turma.all
-    @publicos_alvo = [ "Doscentes", "Discentes" ]
+    @publicos_alvo = [ "Docentes", "Discentes" ]
   end
 
   def create
     @questionario = Questionario.new(questionario_params)
     if @questionario.save
-      redirect_to questionarios_path, notice: "Questionário criado com sucesso."
+      redirect_to questionarios_path(@questionario), notice: "Questionário criado com sucesso."
     else
       render :new
     end
   end
 
   def index
-    @questionarios = Questionario.joins(:turma).where(turmas: { id: current_user.matriculas.pluck(:turma_id) }).where.not(id: current_user.respondidos.pluck(:questionario_id))
+    if current_user.aluno
+      # Busc os questionarios das turmas em que o aluno está matriculado
+      turmas_ids = current_user.aluno.matriculas.map(&:turma_id)
+      @questionarios = Questionario.joins(:turma)
+                                   .where(turmas: { id: turmas_ids })
+    else
+      @questionarios = Questionario.none
+      flash[:alert] = "Aluno não encontrado para o usuário atual."
+    end
   end
 
   def show
@@ -40,6 +50,14 @@ class QuestionariosController < ApplicationController
   private
 
   def questionario_params
-    params.require(:questionario).permit(:nome, :turma_id, :template_id)
+    params.require(:questionario).permit(:nome, :turma_id, :template_id, :publico_alvo)
+  end
+
+  def set_turma
+    @turma = Turma.find(params[:turma_id]) if params[:turma_id].present?
+  end
+
+  def set_questionario
+    @questionario = Questionario.find(params[:id])
   end
 end
