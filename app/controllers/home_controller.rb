@@ -28,7 +28,8 @@ class HomeController < ApplicationController
       session[:user_id] = user.id
       session[:user_type] = "user"
       # Redireciona usuário comum para seu dashboard
-      redirect_to new_questionario_path, notice: "Login efetuado com sucesso!"
+      redirect_to questionarios_path, notice: "Login efetuado com sucesso!"
+
     else
       # Se nenhuma das condições acima for atendida
       # (usuário não existe ou senha incorreta)

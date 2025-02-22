@@ -1,6 +1,5 @@
 class Resposta < ApplicationRecord
-  self.table_name = "respostas" #Não estava criando a tabela no banco de dados com o nome correto.
-
+  self.table_name = "respostas"
   belongs_to :questionario
   belongs_to :question
 

@@ -8,9 +8,9 @@
   
   <div id="menu-container" class="menu-container">
     <% if session[:user_type] == "user" %>
-      <button class="menu-button">Avaliação</button>
+      <button class="menu-button" onclick="window.location.href='<%= questionarios_path %>'">Avaliação</button>
     <% elsif session[:user_type] == "admin" %>
-      <button class="menu-button">Avaliação</button>
+      <button class="menu-button" onclick="window.location.href='<%= questionarios_path %>'">Avaliação</button>
       <button class="menu-button" onclick="window.location.href='<%= admin_management_path %>'">Gerenciamento</button>
     <% end %>
   </div>

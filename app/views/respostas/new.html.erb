@@ -1,0 +1,30 @@
+<!-- app/views/respostas/new.html.erb -->
+<div class="container">
+  <h1>Responder Questionário: <%= @questionario.nome %></h1>
+
+  <%= form_with(url: questionario_respostas_path(@questionario), method: :post, local: true) do |form| %>
+    <% @questions.each do |question| %>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title"><%= question.title %></h5>
+          <p class="card-text"><%= question.content %></p>
+
+          <% if question.radio? || question.checkbox? %>
+            <% question.questao_options.each do |option| %>
+              <div class="form-check">
+                <%= form.radio_button "respostas[#{question.id}][valor]", option.texto, class: "form-check-input" %>
+                <%= form.label "respostas[#{question.id}][valor]", option.texto, class: "form-check-label" %>
+              </div>
+            <% end %>
+          <% else %>
+            <%= form.text_area "respostas[#{question.id}][valor]", class: "form-control", rows: 3 %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= form.submit "Enviar Respostas", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
