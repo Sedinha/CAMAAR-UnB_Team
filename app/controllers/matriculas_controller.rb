@@ -3,27 +3,32 @@ class MatriculasController < ApplicationController
 
   def index
     @matriculas = Matricula.all
+    render json: @matriculas
   end
 
   def show
     @matricula = Matricula.find(params[:id])
+    render json: @matricula
   end
 
   def new
     @matricula = Matricula.new
+    render json: @matricula
   end
 
   def create
     @matricula = Matricula.new(matricula_params)
     if @matricula.save
       redirect_to @matricula
+      render json: @matricula, status: :created
     else
-      render :new
+      render json: @matricula.errors, status: :unprocessable_entity
     end
   end
 
   def edit
     @matricula = Matricula.find(params[:id])
+    render json: @matricula
   end
 
   def update

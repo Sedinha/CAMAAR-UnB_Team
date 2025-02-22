@@ -20,7 +20,7 @@ class ResultsController < ApplicationController
     CSV.generate(headers: true) do |csv|
       csv << ["Aluno", "Turma", "Nota"]
       results.each do |result|
-        csv << [result.student.name, result.student.class_info.code, result.score]
+        csv << [result.aluno.nome, result.turma.codigo, result.score]
       end
     end
   end
