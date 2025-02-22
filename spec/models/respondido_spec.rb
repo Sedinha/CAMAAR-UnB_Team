@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Respondido, type: :model do
   let(:user) { User.create!(username: "user", matricula: "654321", email: "user@example.com", password: "password", password_confirmation: "password", role: :user) }
-  let(:questionario) { Questionario.create!(nome: "Questionário Teste", turma: Turma.create!(codigo: "123456", semestre: "2025-1", disciplina: Disciplina.create!(nome: "Disciplina Teste")), template: Template.create!(nome: "Template Teste", semestre: "2022/1", publicoAlvo: "estudantes")) }
+  let(:questionario) { Questionario.create!(nome: "Questionário Teste", publico_alvo:"estudantes", turma: Turma.create!(codigo: "123456", semestre: "2025-1", disciplina: Disciplina.create!(nome: "Disciplina Teste")), template: Template.create!(nome: "Template Teste", semestre: "2022/1", publicoAlvo: "estudantes")) }
 
   it "is valid with valid attributes" do
     respondido = Respondido.new(questionario: questionario, user: user)
